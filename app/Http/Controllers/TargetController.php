@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Target;
 use Carbon\Carbon;
 use Auth;
+use PDF;
+use File;
 use League\CommonMark\CommonMarkConverter;
 
 class TargetController extends Controller
@@ -101,7 +103,7 @@ class TargetController extends Controller
     public function show($id)
     {
         $targets = Target::find($id);
-        return view('target.detail', compact('target'));
+        return view('target.tampil', compact('targets'));
     }
 
     /**
@@ -159,5 +161,14 @@ class TargetController extends Controller
             $targets = Target::orderBy('nama_petugas', 'desc')->paginate(5); // Pagination menampilkan 5 data
         }
         return view('target.tampil', compact('target'));
+    }
+
+    
+    public function cetaktarget()
+    {
+        $targets = Target::all();
+
+    $pdf = PDF::loadView('dashboard.cetaktarget', ['targets' => $targets]);
+    return $pdf->stream('Laporan-Data-Target-Survei.pdf');
     }
 }

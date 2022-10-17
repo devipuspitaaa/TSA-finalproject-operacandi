@@ -82,5 +82,8 @@
             </table>
         </div>
         </div>
+        <div class="float-left my-2 text-center">
+    <a class="btn btn-danger mt-3" href="{{route('dashboard.cetaktarget')}}">Cetak PDF</a>
+</div>
     </div>
     @endsection

@@ -1,10 +1,10 @@
 <?php
 
-use App\Models\Dashboard;
 namespace App\Http\Controllers;
-
 use App\Models\Dashboard;
 use Illuminate\Http\Request;
+
+use PDF;
 
 class DashboardController extends Controller
 {
@@ -41,4 +41,6 @@ class DashboardController extends Controller
         return view('dashboard.index', compact('dashboard'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
+
 }
+

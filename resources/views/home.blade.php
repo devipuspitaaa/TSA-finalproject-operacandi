@@ -119,6 +119,9 @@
                                                     </div>
                                                 </td>
                                             </tr>
+                                            <div class="float-left my-2 text-center">
+                                                <a class="btn btn-danger mt-3" href="{{route('dashboard.cetaksurvey')}}">Cetak PDF</a>
+                                            </div>
                                             <tr>
                                                 <td colspan="12" class="hiddenRow">
                                                     <div class="accordian-body collapse" id="demo1">
@@ -205,7 +208,6 @@
         </div>
     </div>
 </div>
-
 
 <div class="container">
     <div class="row">

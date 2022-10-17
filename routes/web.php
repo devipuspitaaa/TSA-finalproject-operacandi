@@ -33,6 +33,7 @@ Route::get('/tentang', function () {
 });
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get("/home", [HomeController::class, 'index'])->name("home");
+Route::get('survey-cetak', [App\Http\Controllers\HomeController::class, 'cetaksurvey'])->name('dashboard.cetaksurvey');
 
 Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
 
@@ -57,6 +58,8 @@ Route::get('inputPengawas', [App\Http\Controllers\PengawasController::class, 'cr
 Route::resource('target', TargetController::class);
 Route::post("target/update/{id}", [TargetController::class, 'update']);
 Route::get('inputTarget', [App\Http\Controllers\TargetController::class, 'create'])->name('inputTarget');
+Route::get('target-cetak', [App\Http\Controllers\TargetController::class, 'cetaktarget'])->name('dashboard.cetaktarget');
+
 
 /** End : Module Target */
 
