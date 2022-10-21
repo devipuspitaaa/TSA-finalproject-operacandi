@@ -52,18 +52,22 @@
               <p>Data Statistik</p>
             </a>
           </li> --}}
+          @if (Auth::user()->role=='admin')
           <li class="nav-item {{ set_active(['form.index', 'form.create', 'form.edit']) }}">
             <a href="{{ route('form.index')}}">
               <i class="nc-icon nc-paper"></i>
               <p>Input Survei</p>
             </a>
           </li>
+          @endif
+          @if (Auth::user()->role=='pengawas')
           <li class="nav-item {{ set_active(['target.index', 'target.create', 'target.edit']) }}">
             <a href="{{ route('target.index')}}">
               <i class="nc-icon nc-align-center"></i>
               <p>Input Realisasi Target</p>
             </a>
           </li>
+          @endif
           <li
             class="nav-item {{ set_active(['pengawas.index','pengawas.create', 'petugas.index', 'petugas.create']) }}">
             <a data-toggle="collapse" href="#componentsExamples" aria-expanded="true" class="">

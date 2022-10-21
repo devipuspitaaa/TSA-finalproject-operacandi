@@ -66,5 +66,5 @@ Route::get('target-cetak', [App\Http\Controllers\TargetController::class, 'cetak
 Route::get('inputForm', function () { return view('inputForm'); })->middleware('checkRole:admin');
 Route::get('inputPetugas', function () { return view('inputPetugas'); })->middleware('checkRole:admin');
 Route::get('inputPengawas', function () { return view('inputPengawas'); })->middleware('checkRole:admin');
-Route::get('inputTarget', function () { return view('inputTarget'); })->middleware(['checkRole:pengawas,admin']);
+Route::get('inputTarget', function () { return view('inputTarget'); })->middleware(['checkRole:pengawas']);
 Route::get('dashboard', function () { return view('dashboard'); })->middleware(['checkRole:lurah,admin']);
