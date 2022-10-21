@@ -42,7 +42,7 @@
                                 Jangka Hari Penyelesaian
                             </th>
                             <th>
-                                Target Petugas
+                                Target Per-Petugas Setiap Hari
                             </th>
                             @if (Auth::user()->role=='admin')
                             <th class="text-right">

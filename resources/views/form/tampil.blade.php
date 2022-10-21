@@ -33,7 +33,7 @@
             <th>Total Petugas</th>
             <th>Total Pengawas</th>
             <th>Jangka Hari Penyelesaian</th>
-            <th>Target Petugas</th>
+            <th>Target Per-Petugas Setiap Hari</th>
             <th width="250px">Action</th>
         </tr>
         @foreach ($form as $data)

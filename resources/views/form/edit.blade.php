@@ -72,7 +72,7 @@
                     </div>
 
                     <div class="row">
-                        <label class="col-sm-2 col-form-label">Target Petugas</label>
+                        <label class="col-sm-2 col-form-label">Target Per-Petugas Setiap Hari</label>
                         <div class="col-sm-10">
                             <div class="form-group">
                                 <input type="target_petugas" name="target_petugas" class="form-control" id="target_petugas" value="{{$data->target_petugas}}" aria-describedby="target_petugas" placeholder="masukkan target petugas" required>
