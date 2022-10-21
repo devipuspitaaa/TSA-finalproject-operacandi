@@ -10,12 +10,7 @@
                 <h2 class="card-title"><strong> DATA TARGET PETUGAS</strong> </h2>
             </center>
             <br>
-            @if (Auth::user()->role=='pengawas')
             <a class="btn btn-success" href="{{ route('target.create') }}"> Tambah Data</a>
-            @endif
-            @if (Auth::user()->role=='admin')
-            <a class="btn btn-success" href="{{ route('target.create') }}"> Tambah Data</a>
-            @endif
         </div>
         <div class="card-body">
             @if ($message = Session::get('success'))
