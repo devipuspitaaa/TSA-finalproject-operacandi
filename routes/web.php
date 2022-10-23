@@ -68,3 +68,7 @@ Route::get('inputPetugas', function () { return view('inputPetugas'); })->middle
 Route::get('inputPengawas', function () { return view('inputPengawas'); })->middleware('checkRole:admin');
 Route::get('inputTarget', function () { return view('inputTarget'); })->middleware(['checkRole:pengawas']);
 Route::get('dashboard', function () { return view('dashboard'); })->middleware(['checkRole:lurah,admin']);
+
+/** Laporan */
+Route::get('form-laporan', [App\Http\Controllers\HomeController::class, 'formlaporan'])->name('laporan.form');
+Route::get('laporan-realisasi/{tglAwal}/{tglAkhir}', [App\Http\Controllers\HomeController::class, 'laporanrealisasi'])->name('laporan.cetaklaporan');

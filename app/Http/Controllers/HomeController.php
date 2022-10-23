@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use App\Models\Target;
 use PDF;
 use File;
 class HomeController extends Controller
@@ -194,8 +194,11 @@ class HomeController extends Controller
                 'infopengawas'  => $kolom,
                 'infopetugas'   => $arr_petugas
             ));
+        }
 
-            // kolom target
+
+
+        // kolom target
         $kolomTable = DB::table("targets")->select("tanggal")->groupBy("tanggal")->get();
 
 
@@ -203,9 +206,22 @@ class HomeController extends Controller
         // area ---- komulatif
         $dt_survey = DB::table("survei")->first();
         $dt_statistik = $this->statistik();
-
     $pdf = PDF::loadView('dashboard.cetaksurvey', compact('dt_entry', 'kolomTable', 'dt_survey', 'dt_statistik'));
     return $pdf->stream('Laporan-Data-Target-Survei.pdf');
     }
+
+    public function formlaporan()
+    {
+        return view('laporan.form');
+    }
+
+    public function laporanrealisasi($tglAwal, $tglAkhir){
+        $cetak = Target::orderBy('created_at','ASC')
+                            ->whereBetween('tanggal', [$tglAwal, $tglAkhir])
+                            ->get();
+
+        $pdf = PDF::loadView('laporan.cetaklaporan', ['cetak' => $cetak]);
+        return $pdf->stream('Laporan-Data-Realisasi-Petugas.pdf');
+    }
 }
-}
+
