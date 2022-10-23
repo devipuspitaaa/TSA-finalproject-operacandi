@@ -32,84 +32,79 @@
 		</thead>
 		<tbody>
             @php 
-                                                $total_keseluruhan = 0
-                                            @endphp
-                                            @foreach ( $dt_entry AS $kolom )
-                                            <tr data-toggle="collapse" data-target="#demo1" class="accordion-toggle">
-                                                <td>{{ $kolom['infopengawas']->nama_lengkap }}</td>
-                                                <td>
+                $total_keseluruhan = 0
+                    @endphp
+                    @foreach ( $dt_entry AS $kolom )
+                    <tr data-toggle="collapse" data-target="#demo1" class="accordion-toggle">
+                    <td>{{ $kolom['infopengawas']->nama_lengkap }}</td>
+                    <td>
+                        @php
 
+                        $survey = 0;
+                        $total = 0;
 
+                        foreach ( $kolom['infopetugas'] AS $nomor => $kolom_petugas ) {
 
-                                                    @php
+                        if ( $dt_survey ) {
 
-                                                    $survey = 0;
-                                                    $total = 0;
+                        $survey += ($dt_survey->jh_penyelesaian *
+                        $dt_survey->target_petugas);
+                        }
 
-                                                    foreach ( $kolom['infopetugas'] AS $nomor => $kolom_petugas ) {
+                        foreach ( $kolom_petugas['target'] AS $kolom_target ) {
 
-                                                    if ( $dt_survey ) {
+                        $total += $kolom_target->target;
+                        }
+                        }
 
-                                                    $survey += ($dt_survey->jh_penyelesaian *
-                                                    $dt_survey->target_petugas);
-                                                    }
+                        // if ( $dt_survey ) {
 
+                        // $survey = $dt_survey->jh_penyelesaian *
+                        $dt_survey->target_petugas;
+                        // }
 
+                        $total_keseluruhan += $total
 
-                                                    foreach ( $kolom_petugas['target'] AS $kolom_target ) {
+                        @endphp
+                        {{ $survey }}
+                    </td>
+                    <td>{{ $total }}</td>
+                    <td>
+                        @php
+                        $persen = 0;
+                        $progress = 0;
+                        $color = "warning";
+                        if ( $survey != 0 && $total != 0 ) {
 
-                                                    $total += $kolom_target->target;
-                                                    }
-                                                    }
+                        $persen = $total / $survey * 100;
 
-                                                    // if ( $dt_survey ) {
+                        if ( $persen == 100 ) {
 
-                                                    // $survey = $dt_survey->jh_penyelesaian *
-                                                    $dt_survey->target_petugas;
-                                                    // }
+                        $progress = $persen;
+                        $color = "info";
+                        } else {
 
-                                                    $total_keseluruhan += $total
+                        $progress = $persen + 20;
+                        }
+                        }
+                        @endphp
+                        <div class="progress">
+                            {{-- <div class="progress-bar <strong>bg-success</strong>"
+                                role="progressbar" style="width: 100%" aria-valuenow="100"
+                                aria-valuemin="0" aria-valuemax="100">
 
-                                                    @endphp
-                                                    {{ $survey }}
-                                                </td>
-                                                <td>{{ $total }}</td>
-                                                <td>
-                                                    @php
-                                                    $persen = 0;
-                                                    $progress = 0;
-                                                    $color = "warning";
-                                                    if ( $survey != 0 && $total != 0 ) {
+                            </div> --}}
+                            <div class="progress-bar  progress-bar-animated bg-{{ $color }}" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: {{ $progress }}%">
+                                <b>{{ number_format($persen, 2).' %' }}</b>
+                            </div>
 
-                                                    $persen = $total / $survey * 100;
-
-                                                    if ( $persen == 100 ) {
-
-                                                    $progress = $persen;
-                                                    $color = "info";
-                                                    } else {
-
-                                                    $progress = $persen + 20;
-                                                    }
-                                                    }
-                                                    @endphp
-                                                    <div class="progress">
-                                                        {{-- <div class="progress-bar <strong>bg-success</strong>"
-                                                            role="progressbar" style="width: 100%" aria-valuenow="100"
-                                                            aria-valuemin="0" aria-valuemax="100">
-
-                                                        </div> --}}
-                                                        <div class="progress-bar  progress-bar-animated bg-{{ $color }}" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: {{ $progress }}%">
-                                                            <b>{{ number_format($persen, 2).' %' }}</b>
-                                                        </div>
-
-                                                    </div>
-                                                </td>
-                                                            </tbody>
-                                                            @endforeach
-                                                        </table>
-                                                    </div>
-                                                </td>
-                                            </tr>
-</body>
-</html>
+                        </div>
+                    </td>
+                                </tbody>
+                                @endforeach
+                            </table>
+                        </div>
+                    </td>
+            </tr>
+    </body>
+ </html>

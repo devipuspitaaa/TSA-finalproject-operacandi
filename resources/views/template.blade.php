@@ -90,6 +90,12 @@
                 </li>
               </ul>
             </div>
+            <li class="nav-item {{ set_active(['laporan']) }}">
+            <a href="{{ route('laporan.form')}}">
+              <i class="nc-icon nc-align-center"></i>
+              <p>Laporan Realisasi</p>
+            </a>
+          </li>
           </li>
         </ul>
       </div>

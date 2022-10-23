@@ -94,10 +94,6 @@
                 </table>
             </div>
         </div>
-        <!-- Form Search -->
-
     </div>
-    <!-- End Form Search -->
-</div>
 </div>
 @endsection
