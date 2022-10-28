@@ -116,105 +116,69 @@
 
     <script>
         $(function() {
-
             // inisialisasi input
             var level = $('input[name="level"]');
             
             var btnAdmin = $('#btn_admin');
             var btnPengawas = $('#btn_pengawas');
             var btnLurah = $('#btn_lurah');
-
             // btn admin dipencet
             $('#btn_admin').click(function() {
-
                 level.val("admin");
-
                 if ( $(this).hasClass("btn-info") ){
-
                     $(this).removeClass("btn-info");
                     $(this).addClass("btn-warning");
                 }
-
                 if ( btnPengawas.hasClass("btn-warning") ) {
-
                     btnPengawas.removeClass("btn-warning");
                     btnPengawas.addClass("btn-info");
                 }
-
                 if ( btnLurah.hasClass("btn-warning") ) {
-
                     btnLurah.removeClass("btn-warning");
                     btnLurah.addClass("btn-info");
                 }
             });
 
             $('#btn_pengawas').click(function() {
-
                 level.val("pengawas");
-
-
-
                 if ( $(this).hasClass("btn-info") ){
-
                     $(this).removeClass("btn-info");
                     $(this).addClass("btn-warning");
                 }
-
                 if ( btnAdmin.hasClass("btn-warning") ) {
-
                         btnAdmin.removeClass("btn-warning");
                         btnAdmin.addClass("btn-info");
                 }
-
                 if ( btnLurah.hasClass("btn-warning") ) {
-
                         btnLurah.removeClass("btn-warning");
                         btnLurah.addClass("btn-info");
                 }
             });
 
             $('#btn_lurah').click(function() {
-
                 level.val("lurah");
-
-
                 if ( $(this).hasClass("btn-info") ){
-
                     $(this).removeClass("btn-info");
                     $(this).addClass("btn-warning");
                 }
-
-
                 if ( btnAdmin.hasClass("btn-warning") ) {
-
                         btnAdmin.removeClass("btn-warning");
                         btnAdmin.addClass("btn-info");
                 }
-
                 if ( btnPengawas.hasClass("btn-warning") ) {
-
                         btnPengawas.removeClass("btn-warning");
                         btnPengawas.addClass("btn-info");
                 }
             });
 
-
-
             $('#form-login').submit(function( e ){
-
                 if ( level.val().length > 0 ) {
-
                     $(this).submit();
                 } else {
-
                     $("#myToast").toast("show");
                 }
-
                 e.preventDefault();
             });
-
         });
     </script>
-
-
     @endsection
