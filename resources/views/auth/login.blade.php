@@ -24,9 +24,7 @@
                     <br>
                     <div class="card-body">
                         <form method="POST" action="{{ route('login') }}" id="form-login">
-
                             @csrf
-
                             <div class="row mb-3">
                                 <input type="hidden" name="level" />
                                 <label for="username" class="col-md-4 col-form-label text-md-end">{{ __('Username')
@@ -36,7 +34,6 @@
                                     <input id="username" type="username"
                                         class="form-control @error('username') is-invalid @enderror" name="username"
                                         value="{{ old('username') }}" autocomplete="username">
-
                                     @error('username')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -44,7 +41,6 @@
                                     @enderror
                                 </div>
                             </div>
-
                             <div class="row mb-3">
                                 <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password')
                                     }}</label>
@@ -53,7 +49,6 @@
                                     <input id="password" type="password"
                                         class="form-control @error('password') is-invalid @enderror" name="password"
                                         autocomplete="current-password">
-
                                     @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
