@@ -24,9 +24,6 @@
                     <h3 class="card-title">Tabel Komulatif</h3>
                 </div>
                 
-                <div class="float-left my-2 text-center">
-                    <a class="btn btn-danger mt-3" href="{{route('dashboard.cetaksurvey')}}" style="margin-left: -940px;">Cetak PDF</a>
-                </div>
                 <div class="card-body">
                     <div class="toolbar">
                         <div id="accordion" role="tablist" aria-multiselectable="true" class="card-collapse">
@@ -34,8 +31,8 @@
                         <div id="datatable_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
                             
                             <div class="row">
-                                <div class="col-sm-12 table-responsive">
-                                    <table class="table table-condensed table-striped">
+                                <div class="col-sm-12 ">
+                                    <table id="dataTableHover1" class="table table-condensed table-striped">
                                         <thead>
                                             <tr>
                                                 <th></th>
@@ -53,11 +50,8 @@
                                             @foreach ( $dt_entry AS $kolom )
                                             <tr data-toggle="collapse" data-target="#demo1" class="accordion-toggle">
                                                 <td><i class="nc-icon nc-simple-add"></i></td>
-                                                <td>{{ $kolom['infopengawas']->nama_lengkap }}</td>
+                                                <td>{{ $kolom['infopengawas']->name }}</td>
                                                 <td>
-
-
-
                                                     @php
 
                                                     $survey = 0;
@@ -200,6 +194,9 @@
                                             @endforeach
                                         </tbody>
                                     </table>
+                                <div class="float-left my-2 text-center">
+                                    <a class="btn btn-danger mt-3" href="{{route('dashboard.cetaksurvey')}}" style="padding-left:10px; padding-right:10px; padding-bottom:10px; padding-top:10px;">Cetak PDF</a>
+                                </div>
                                 </div>
                             </div>
                         </div>
@@ -244,7 +241,7 @@
                                             @foreach ( $dt_entry AS $kolom )
                                             <tr data-toggle="collapse" data-target="#demo-{{ $kolom['infopengawas']->id }}" class="accordion-toggle">
                                                 <td><i class="nc-icon nc-simple-add"></i></td>
-                                                <td>{{ $kolom['infopengawas']->nama_lengkap }}</td>
+                                                <td>{{ $kolom['infopengawas']->name }}</td>
 
                                                 @foreach ( $kolomTable AS $isi_kolom )
 
@@ -359,7 +356,7 @@
             <div class="card ">
                 <div class="card-header ">
                     <h5 class="card-title">Pengawas</h5>
-                    <p class="card-category">Grafik Setiap Pengawas</p>
+                    <p class="card-category">Grafik Ketercapaian Survey</p>
                 </div>
                 <div class="card-body ">
                     <div class="chartjs-size-monitor">
@@ -376,7 +373,7 @@
                     <div class="legend">
                         <i class="fa fa-circle text-primary"></i> Total Realisasi = {{ $total_keseluruhan }}
                         <br>
-                        <i class="fa fa-circle text-danger"></i> Total Target yang Belum ter-Realisasi = {{ $dt_survey->total_target - $total_keseluruhan  }}
+                        <i class="fa fa-circle text-danger"></i> Target Belum ter-Realisasi = {{ $dt_survey->total_target - $total_keseluruhan  }}
                     </div>
 
                     <hr>
@@ -413,6 +410,7 @@
         </div>
     </div>
 </div>
+
 
 
 <script src="{{ asset('assets/js/plugins/chartjs.min.js') }}"></script>

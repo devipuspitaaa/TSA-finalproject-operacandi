@@ -33,15 +33,18 @@
 		<tbody>
 			@php $i=1 @endphp
             @foreach ($cetak as $data)
+			@if (Auth::user()->id)
 			<tr>
 				<td>{{ $i++ }}</td>
                 <td>{{ $data->petugas->nama_lengkap}}</td>
                 <td>{{ $data->tanggal }}</td>
                 <td>{{ $data->target }}</td>
-			@endforeach
-    </tr>
-		</tbody>
-	</table>
- 
-</body>
-</html>
+				</tbody>
+				@endif
+                                @endforeach
+                            </table>
+                        </div>
+                    </td>
+            </tr>
+    </body>
+ </html>

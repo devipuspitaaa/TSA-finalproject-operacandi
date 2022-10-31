@@ -20,7 +20,7 @@
                 <p>{{ $message }}</p>
             </div>
             @endif
-            <div class="table-responsive">
+            <div class="">
                 <table class="table" id="datatable">
                     <thead class="text-primary">
                         <tr>
@@ -58,7 +58,7 @@
                     <tbody>
                         @foreach ($pengawas as $data)
                         <tr>
-                            <td>{{ $data->nama_lengkap }}</td>
+                            <td>{{ $data->name }}</td>
                             <td>{{ $data->survei->nama_survei }}</td>
                             <td>{{ $data->no_ktp }}</td>
                             <td>{{ $data->jenis_kelamin }}</td>

@@ -30,7 +30,9 @@ class HomeController extends Controller
         $dt_entry = array();
 
         // ambil data pengawas 
-        $dt_pengawas = DB::table("pengawas")->get();
+        $dt_pengawas = DB::table("users")
+                        ->where('role', 'pengawas')
+                        ->get();
 
         /**
          *  1. Tampil data pengawas get()

@@ -22,8 +22,8 @@
             </div>
             @endif
 
-            <div class="table-responsive">
-                <table class="table" id="datatable">
+            <div class="">
+                <table class="table" id="basic-datatables">
                     <thead class="text-primary">
                         <tr>
                             <th>

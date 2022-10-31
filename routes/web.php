@@ -3,6 +3,7 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SurveiController;
 use App\Http\Controllers\PengawasController;
+use App\Http\Controllers\ProfilePengawasController;
 use App\Http\Controllers\PetugasController;
 use App\Http\Controllers\TargetController;
 use Illuminate\Support\Facades\Route;
@@ -53,6 +54,9 @@ Route::post("pengawas/update/{id}", [PengawasController::class, 'update']);
 Route::get('inputPengawas', [App\Http\Controllers\PengawasController::class, 'create'])->name('inputPengawas');
 /** End : Module Petugas */
 
+/**Profile Pengawas */ 
+Route::get('/profile-pengawas', [ProfilePengawasController::class, 'index'])->name('pengawas.profile.index');   
+Route::post('/profilepengawas-update', [ProfilePengawasController::class, 'updateprofile'])->name('pengawas.profile.update');
 
 /** Target */
 Route::resource('target', TargetController::class);

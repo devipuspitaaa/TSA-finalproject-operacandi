@@ -16,7 +16,7 @@
   <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" />
   <link href="{{ asset('assets/css/paper-dashboard.css?v=2.0.1') }}" rel="stylesheet" />
   <link href="{{ asset('assets/demo/demo.css') }}" rel="stylesheet" />
-
+  <link href="vendorss/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
   <script src="{{ asset('assets/js/core/jquery.min.js') }}"></script>
   <script src="{{ asset('assets/js/core/popper.min.js') }}"></script>
@@ -78,11 +78,20 @@
             </a>
             <div class="collapse show" id="componentsExamples">
               <ul class="nav">
+              @if (Auth::user()->role=='pengawas')
+              <li class="nav-item {{ set_active(['pengawas.index', 'pengawas.create', 'pengawas.edit']) }}">
+                  <a href="{{ route('pengawas.profile.index')}}">
+                    <span class="sidebar-normal"> Biodata Pengawas </span>
+                  </a>
+                </li>
+                @endif
+                @if (Auth::user()->role != 'pengawas')
                 <li class="nav-item {{ set_active(['pengawas.index', 'pengawas.create', 'pengawas.edit']) }}">
                   <a href="{{ route('pengawas.index')}}">
                     <span class="sidebar-normal"> Biodata Pengawas </span>
                   </a>
                 </li>
+                @endif
                 <li class="nav-item {{ set_active(['petugas.index', 'petugas.create', 'petugas.edit']) }}">
                   <a href="{{ route('petugas.index')}}">
                     <span class="sidebar-normal"> Biodata Petugas </span>
@@ -136,12 +145,23 @@
                   <i class="nc-icon nc-circle-10"></i>
                   <span class="mr-2 d-none d-lg-inline text-gray-600 small"> {{ Auth::user()->name }}</span>
                 </a>
+                @if (Auth::user()->role=='pengawas')
                 <!-- Dropdown - User Information -->
                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                  <a class="dropdown-item" href="#">
+                  <a class="dropdown-item" href="{{ route ('pengawas.profile.index') }}">
                     <i class="nc-icon nc-single-02"></i>
                     Profile
                   </a>
+                  @endif
+
+                  @if (Auth::user()->role=='admin')
+                <!-- Dropdown - User Information -->
+                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                  <a class="dropdown-item" href="">
+                    <i class="nc-icon nc-single-02"></i>
+                    Profile
+                  </a>
+                  @endif
                   {{-- <a class="dropdown-item" href="#">
                     <i class="nc-icon nc-settings-gear-65"></i>
                     Settings
@@ -220,11 +240,15 @@
   <script src="{{ asset('assets/js/paper-dashboard.min.js') }}?v=2.0.1" type="text/javascript"></script>
   <script src="{{ asset('assets/demo/demo.js') }}"></script>
   <script src="{{ asset('/assets/js/plugins/chartjs.min.js') }}"></script>
+  <!-- Datatables -->
+<script src="assets/js/plugin/datatables/datatables.min.js"></script>
 
   <script src="https://demos.creative-tim.com/paper-dashboard-2-pro/assets/js/plugins/moment.min.js"></script>
   <script src="https://demos.creative-tim.com/paper-dashboard-2-pro/assets/js/plugins/bootstrap-datetimepicker.js"></script>
   <script src="https://demos.creative-tim.com/paper-dashboard-2-pro/assets/js/plugins/jquery.dataTables.min.js"></script>
-
+<!-- Datatables -->
+<script src="vendorss/datatables/jquery.dataTables.min.js"></script>
+<script src="vendorss/datatables/dataTables.bootstrap4.min.js"></script>
   <script>
     $(document).ready(function() {
       // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
@@ -235,6 +259,61 @@
   <script>
     $(document).ready(function() {
       demo.initChartsPages();
+    });
+  </script>
+  <script >
+    $(document).ready(function() {
+        $('#basic-datatables').DataTable({
+        });
+
+        $('#multi-filter-select').DataTable( {
+            "pageLength": 5,
+            initComplete: function () {
+                this.api().columns().every( function () {
+                    var column = this;
+                    var select = $('<select class="form-control"><option value=""></option></select>')
+                    .appendTo( $(column.footer()).empty() )
+                    .on( 'change', function () {
+                        var val = $.fn.dataTable.util.escapeRegex(
+                            $(this).val()
+                            );
+
+                        column
+                        .search( val ? '^'+val+'$' : '', true, false )
+                        .draw();
+                    } );
+
+                    column.data().unique().sort().each( function ( d, j ) {
+                        select.append( '<option value="'+d+'">'+d+'</option>' )
+                    } );
+                } );
+            }
+        });
+
+        // Add Row
+        $('#add-row').DataTable({
+            "pageLength": 5,
+        });
+
+        var action = '<td> <div class="form-button-action"> <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Task"> <i class="fa fa-edit"></i> </button> <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Remove"> <i class="fa fa-times"></i> </button> </div> </td>';
+
+        $('#addRowButton').click(function() {
+            $('#add-row').dataTable().fnAddData([
+                $("#addName").val(),
+                $("#addPosition").val(),
+                $("#addOffice").val(),
+                action
+                ]);
+            $('#addRowModal').modal('hide');
+
+        });
+    });
+</script>
+ <!-- Page level custom scripts -->
+ <script>
+    $(document).ready(function () {
+      $('#dataTable').DataTable(); // ID From dataTable
+      $('#dataTableHover1').DataTable(); // ID From dataTable with Hover
     });
   </script>
   <script>
