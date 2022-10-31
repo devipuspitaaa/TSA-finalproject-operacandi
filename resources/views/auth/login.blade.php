@@ -24,9 +24,7 @@
                     <br>
                     <div class="card-body">
                         <form method="POST" action="{{ route('login') }}" id="form-login">
-
                             @csrf
-
                             <div class="row mb-3">
                                 <input type="hidden" name="level" />
                                 <label for="username" class="col-md-4 col-form-label text-md-end">{{ __('Username')
@@ -36,7 +34,6 @@
                                     <input id="username" type="username"
                                         class="form-control @error('username') is-invalid @enderror" name="username"
                                         value="{{ old('username') }}" autocomplete="username">
-
                                     @error('username')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -44,7 +41,6 @@
                                     @enderror
                                 </div>
                             </div>
-
                             <div class="row mb-3">
                                 <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password')
                                     }}</label>
@@ -53,7 +49,6 @@
                                     <input id="password" type="password"
                                         class="form-control @error('password') is-invalid @enderror" name="password"
                                         autocomplete="current-password">
-
                                     @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -116,105 +111,69 @@
 
     <script>
         $(function() {
-
             // inisialisasi input
             var level = $('input[name="level"]');
             
             var btnAdmin = $('#btn_admin');
             var btnPengawas = $('#btn_pengawas');
             var btnLurah = $('#btn_lurah');
-
             // btn admin dipencet
             $('#btn_admin').click(function() {
-
                 level.val("admin");
-
                 if ( $(this).hasClass("btn-info") ){
-
                     $(this).removeClass("btn-info");
                     $(this).addClass("btn-warning");
                 }
-
                 if ( btnPengawas.hasClass("btn-warning") ) {
-
                     btnPengawas.removeClass("btn-warning");
                     btnPengawas.addClass("btn-info");
                 }
-
                 if ( btnLurah.hasClass("btn-warning") ) {
-
                     btnLurah.removeClass("btn-warning");
                     btnLurah.addClass("btn-info");
                 }
             });
 
             $('#btn_pengawas').click(function() {
-
                 level.val("pengawas");
-
-
-
                 if ( $(this).hasClass("btn-info") ){
-
                     $(this).removeClass("btn-info");
                     $(this).addClass("btn-warning");
                 }
-
                 if ( btnAdmin.hasClass("btn-warning") ) {
-
                         btnAdmin.removeClass("btn-warning");
                         btnAdmin.addClass("btn-info");
                 }
-
                 if ( btnLurah.hasClass("btn-warning") ) {
-
                         btnLurah.removeClass("btn-warning");
                         btnLurah.addClass("btn-info");
                 }
             });
 
             $('#btn_lurah').click(function() {
-
                 level.val("lurah");
-
-
                 if ( $(this).hasClass("btn-info") ){
-
                     $(this).removeClass("btn-info");
                     $(this).addClass("btn-warning");
                 }
-
-
                 if ( btnAdmin.hasClass("btn-warning") ) {
-
                         btnAdmin.removeClass("btn-warning");
                         btnAdmin.addClass("btn-info");
                 }
-
                 if ( btnPengawas.hasClass("btn-warning") ) {
-
                         btnPengawas.removeClass("btn-warning");
                         btnPengawas.addClass("btn-info");
                 }
             });
 
-
-
             $('#form-login').submit(function( e ){
-
                 if ( level.val().length > 0 ) {
-
                     $(this).submit();
                 } else {
-
                     $("#myToast").toast("show");
                 }
-
                 e.preventDefault();
             });
-
         });
     </script>
-
-
     @endsection
