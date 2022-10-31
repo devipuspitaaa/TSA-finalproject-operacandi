@@ -20,7 +20,7 @@
                 <p>{{ $message }}</p>
             </div>
             @endif
-            <div class="table-responsive">
+            <div class="">
                 <table class="table" id="datatable">
                     <thead class="text-primary">
                         <tr>
@@ -59,7 +59,7 @@
                         @foreach ($petugas as $data)
                         <tr>
                             <td>{{ $data->nama_lengkap }}</td>
-                            <td>{{ $data->pengawas->nama_lengkap }}</td>
+                            <td>{{ $data->pengawas->name }}</td>
                             <td>{{ $data->no_ktp }}</td>
                             <td>{{ $data->jenis_kelamin }}</td>
                             <td>{{ $data->tempat_tanggal_lahir }}</td>

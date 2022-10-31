@@ -31,6 +31,6 @@ class Petugas extends Model
     }
 
     public function pengawas(){
-        return $this->belongsTo(Pengawas::class);
+    	return $this->belongsTo('App\Models\User', 'pengawas_id', 'id');
     }
 }

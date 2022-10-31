@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Petugas;
 use App\Models\Pengawas;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -45,7 +46,8 @@ class PetugasController extends Controller
      */
     public function create()
     {
-        $pengawas = Pengawas::all();
+        $pengawas = User::all()
+                    ->where('role', 'pengawas');
         return view('petugas.create', ['pengawas' => $pengawas]);
     }
 
@@ -57,7 +59,6 @@ class PetugasController extends Controller
      */
     public function store(Request $request)
     {
-        $pengawas = Pengawas::all();
         $request->validate([
             'nama_lengkap' => 'required',
             'pengawas_id' => 'required',
@@ -72,19 +73,13 @@ class PetugasController extends Controller
 
         $petugas = new Petugas;
         $petugas->nama_lengkap = $request->get('nama_lengkap');
-        $petugas->pengawas_id = $request->get('pengawas_id');
+        $petugas->pengawas_id = $request->pengawas;
         $petugas->no_ktp = $request->get('no_ktp');
         $petugas->jenis_kelamin = $request->get('jenis_kelamin');
         $petugas->tempat_tanggal_lahir = $request->get('tempat_tanggal_lahir');
         $petugas->no_tlp = $request->get('no_tlp');
         $petugas->alamat = $request->get('alamat');
         $petugas->nip = $request->get('nip');
-        
-
-        $pengawas = new Pengawas;
-        $pengawas->id = $request->get('pengawas_id');
-
-        $petugas->pengawas()->associate($pengawas);
         $petugas->save();
 
         // Petugas::create([

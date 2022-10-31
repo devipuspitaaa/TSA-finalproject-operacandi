@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Pengawas;
 use App\Models\Survei;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class PengawasController extends Controller
@@ -23,9 +24,11 @@ class PengawasController extends Controller
      */
     public function index(Request $request)
     {
-        $pengawas = Pengawas::with('survei')->get();
+        $pengawas =User::with('survei')
+        ->where('role', 'pengawas')
+        ->get();
 
-        $pengawas = Pengawas::where([
+        $pengawas = User::where([
             ['survei_id', '!=', Null],
             [function ($query) use ($request) {
                 if (($term = $request->term)) {

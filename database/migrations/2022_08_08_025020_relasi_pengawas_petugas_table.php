@@ -15,7 +15,7 @@ class RelasiPengawasPetugasTable extends Migration
     {
         Schema::table('petugas', function (Blueprint $table) {
             $table->unsignedBigInteger('pengawas_id')->nullable(); //menambahkan kolom petugas_id
-            $table->foreign('pengawas_id')->references('id')->on('pengawas'); //menambahkan foreign key di kolom petugas_id
+            $table->foreign('pengawas_id')->references('id')->on('users'); //menambahkan foreign key di kolom petugas_id
         });
     }
 
