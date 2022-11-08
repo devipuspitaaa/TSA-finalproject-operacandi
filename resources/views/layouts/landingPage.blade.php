@@ -62,12 +62,13 @@
                     referrerpolicy="no-referrer-when-downgrade"></iframe>
                 <br><br>
                 <div>
-                    <center><h5>Madiun (bahasa Jawa: Hanacaraka: ꦩꦝꦶꦪꦸꦤ꧀, Pegon: مادييون, translit. Madhiyun)
+                <center ><h3>Madiun</h3></center><br>
+                    <p style="text-align:justify; width:1100px;">(bahasa Jawa: Hanacaraka: ꦩꦝꦶꦪꦸꦤ꧀, Pegon: مادييون, translit. Madhiyun)
                         adalah sebuah kota di Provinsi Jawa Timur, Indonesia. Kota ini terletak 160 km sebelah barat
                         Surabaya, atau 111 km sebelah timur Surakarta, Jawa Tengah. Di kota ini terdapat Industri kereta
                         api (INKA) dan memiliki sekolah tinggi perkeretaapian, yakni salah satunya Politeknik Perkeretaapian
                         Indonesia. Kota Madiun mendapat julukan sebagai "Kota Gadis", "Kota Brem", "Kota Pecel", "Kota Budaya",
-                        "Kota Industri", "Kota Karismatik", dan "Kota Pendekar".</h5></center>
+                        "Kota Industri", "Kota Karismatik", dan "Kota Pendekar".</p>
                 </div>
             </div>
         </div>
