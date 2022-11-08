@@ -42,7 +42,7 @@
 
           <li class="nav-item {{ set_active('home') }}">
             <a href="{{ route('home')}}">
-              <i class="nc-icon nc-chart-bar-32"></i>
+              <i class="fa fa-area-chart"></i>
               <p>Dashboard</p>
             </a>
           </li>
@@ -55,7 +55,7 @@
           @if (Auth::user()->role=='admin')
           <li class="nav-item {{ set_active(['form.index', 'form.create', 'form.edit']) }}">
             <a href="{{ route('form.index')}}">
-              <i class="nc-icon nc-paper"></i>
+              <i class="fa fa-file-text "></i>
               <p>Input Survei</p>
             </a>
           </li>
@@ -63,7 +63,7 @@
           @if (Auth::user()->role=='pengawas')
           <li class="nav-item {{ set_active(['target.index', 'target.create', 'target.edit']) }}">
             <a href="{{ route('target.index')}}">
-              <i class="nc-icon nc-align-center"></i>
+              <i class="fa fa-file-text "></i>
               <p>Input Realisasi Target</p>
             </a>
           </li>
@@ -71,9 +71,9 @@
           <li
             class="nav-item {{ set_active(['pengawas.index','pengawas.create', 'petugas.index', 'petugas.create']) }}">
             <a data-toggle="collapse" href="#componentsExamples" aria-expanded="true" class="">
-              <i class="nc-icon nc-layout-11"></i>
+              <i class="fa fa-users "></i>
               <p>
-                Data Pegawai <b class="caret"></b>
+                Data Pegawai <b class="caret" style="margin-top:10px; margin-right:40px;"></b>
               </p>
             </a>
             <div class="collapse show" id="componentsExamples">
@@ -81,19 +81,22 @@
               @if (Auth::user()->role=='pengawas')
               <li class="nav-item {{ set_active(['pengawas.index', 'pengawas.create', 'pengawas.edit']) }}">
                   <a href="{{ route('pengawas.profile.index')}}">
-                    <span class="sidebar-normal"> Biodata Pengawas </span>
+                  <i class="fa fa-users "></i>
+                    <span class="sidebar-normal" style="margin-left:48px;"> Biodata Pengawas </span>
                   </a>
                 </li>
                 @endif
                 @if (Auth::user()->role != 'pengawas')
                 <li class="nav-item {{ set_active(['pengawas.index', 'pengawas.create', 'pengawas.edit']) }}">
                   <a href="{{ route('pengawas.index')}}">
+                  <i class="fa fa-user" style="margin-left:35px;"></i>
                     <span class="sidebar-normal"> Biodata Pengawas </span>
                   </a>
                 </li>
                 @endif
                 <li class="nav-item {{ set_active(['petugas.index', 'petugas.create', 'petugas.edit']) }}">
                   <a href="{{ route('petugas.index')}}">
+                  <i class="fa fa-user" style="margin-left:35px;"></i>
                     <span class="sidebar-normal"> Biodata Petugas </span>
                   </a>
                 </li>
@@ -101,8 +104,14 @@
             </div>
             <li class="nav-item {{ set_active(['laporan']) }}">
             <a href="{{ route('laporan.form')}}">
-              <i class="nc-icon nc-align-center"></i>
+              <i class="fa fa-file-pdf-o "></i>
               <p>Laporan Realisasi</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="/">
+              <i class="fa fa-home "></i>
+              <p>Beranda</p>
             </a>
           </li>
           </li>
@@ -215,7 +224,7 @@
           <div class="row">
             <nav class="footer-nav">
               <ul>
-                <li><a href="https://madiunkota.bps.go.id/" target="_blank"><i class="nc-icon nc-globe"></i> Website BPS
+                <li><a href="https://madiunkota.bps.go.id/" target="_blank"><i class="nc-icon nc-globe" style="margin-left:-16px;"></i> BPS
                     Kota Madiun</a></li>
               </ul>
             </nav>
@@ -223,7 +232,7 @@
               <span class="copyright">
                 © <script>
                   document.write(new Date().getFullYear())
-                </script>, made with <i class="fa fa-heart heart"></i> by TIM IT BPS Kota Madiun
+                </script>, TIM IT BPS KOTA MADIUN <i class="fa fa-heart heart"></i>
               </span>
             </div>
           </div>

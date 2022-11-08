@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <div class="card ">
+            <div class="card " style="background-color: #ffc800;">
                 <div class="card-header ">
                     <h2 class="card-title text-center"><strong>Dashboard Survei Kelurahan Josenan</strong></h2>
                     
@@ -21,7 +21,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Tabel Komulatif</h3>
+                    <h3 class="card-title" style="margin-left:8px;">Tabel Komulatif</h3>
                 </div>
                 
                 <div class="card-body">
@@ -353,8 +353,7 @@
         <div class="col-md-4">
             <div class="card ">
                 <div class="card-header ">
-                    <h5 class="card-title">Pengawas</h5>
-                    <p class="card-category">Grafik Ketercapaian Survey</p>
+                    <center><h6>Grafik Ketercapaian Survey</h6></center>
                 </div>
                 <div class="card-body ">
                     <div class="chartjs-size-monitor">
@@ -365,18 +364,18 @@
                             <div class=""></div>
                         </div>
                     </div>
-                    <canvas id="pie-chart" class="ct-chart ct-perfect-fourth chartjs-render-monitor" width="370" height="242" style="display: block; width: 185px; height: 121px;"></canvas>
+                    <canvas id="pie-chart" class="ct-chart ct-perfect-fourth chartjs-render-monitor" width="370" height="200" style="display: block; width: 185px; height: 121px;"></canvas>
                 </div>
                 <div class="card-footer ">
                     <div class="legend">
-                        <i class="fa fa-circle text-primary"></i> Total Realisasi = {{ $total_keseluruhan }}
+                        <i class="fa fa-circle text-primary"></i> Total realisasi : {{ $total_keseluruhan }}</h8>
                         <br>
-                        <i class="fa fa-circle text-danger"></i> Target Belum ter-Realisasi = {{ $dt_survey->total_target - $total_keseluruhan  }}
+                        <i class="fa fa-circle text-danger"></i>  Target belum terealisasi : {{ $dt_survey->total_target - $total_keseluruhan  }}
                     </div>
 
                     <hr>
                     <div class="stats">
-                        <i class="fa fa-history"></i> Total Target = {{ $dt_survey->total_target}}
+                        <i class="fa fa-history"></i>Total Target = {{ $dt_survey->total_target}}
                     </div>
                 </div>
             </div>
@@ -384,7 +383,7 @@
         <div class="col-md-8">
             <div class="card ">
                 <div class="card-header ">
-                    <h5 class="card-title">Grafik Komulatif</h5>
+                    <center><h6>Grafik Komulatif</h6></center>
                     <p class="card-category">Realisasi per-hari dari petugas</p>
                 </div>
                 <div class="card-body ">
@@ -396,7 +395,7 @@
                             <div class=""></div>
                         </div>
                     </div>
-                    <canvas id="bar-chart" width="858" height="214" style="display: block; width: 429px; height: 107px;" class="chartjs-render-monitor"></canvas>
+                    <canvas id="bar-chart" width="858" height="218" style="display: block; width: 429px; height: 107px;" class="chartjs-render-monitor"></canvas>
                 </div>
                 <div class="card-footer">
                     <hr>
