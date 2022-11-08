@@ -21,7 +21,7 @@
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h5 class="text-light mb-4" style="margin-left:-170px;">Foto Kegiatan</h5>
-                    <div class="row g-2">
+                    <div class="row g-2" style="margin-left:-40px;">
                         <div class="col-4">
                             <img class="img-fluid rounded" src="img/project-1.jpg" alt="Image">
                         </div>
