@@ -16,6 +16,11 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
+    <link href="css/styles2.css" rel="stylesheet" />
+    <link href="css/bootstrap2.min.css" rel="stylesheet">
+     <!-- Icon Font Stylesheet -->
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -40,7 +45,7 @@
             <div class="masthead-heading">SELAMAT DATANG di Portal Monitoring & Evaluasi</div>
             <div class="masthead-heading">OPERA CANDI</div>
             <div class="masthead-subheading">(Optimalisasi Pendampingan Petugas Kelurahan Cinta Statistik Kota Madiun)</div>
-            <a class="btn btn-primary btn-xl text-uppercase" href="{{ route('login') }}">Mulai</a>
+            <a class="btn btn-warning btn-lg text-uppercase text-white" href="{{ route('login') }}">Mulai</a>
         </div>
     </header> <!-- End Home -->
 
@@ -68,8 +73,10 @@
         </div>
     </section>
 
-    <!-- Footer-->
+    <!-- Footer Start -->
     @include('layouts.footer')
+    <!-- Footer End -->
+
 
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

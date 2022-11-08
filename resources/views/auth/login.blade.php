@@ -1,22 +1,25 @@
 @extends('layouts.app')
 
 @section('content')
+<br></br><br></br><br></br>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
                     <center>
-                        <h5 class="form-title">What type of user are you ?</h5>
+                        <h5 class="form-title">LOGIN</h5>
                     </center>
                 </div>
                 <br>
                 <div class="container">
                     <div class="sign-up-content">
+                    <br>
                         <center>
                             <div class="form-group">
                                 <input type="button" class="btn btn-info btn-lg" id="btn_admin" onclick="changeLogin('login')" value="Admin">&nbsp;&nbsp;&nbsp;
                                 <input type="button" class="btn btn-info btn-lg" id="btn_pengawas" onclick="changeLogin('login')" value="Pengawas">&nbsp;&nbsp;&nbsp;
+                                <input type="button" class="btn btn-info btn-lg" id="btn_petugas" onclick="changeLogin('login')" value="Petugas">&nbsp;&nbsp;&nbsp;
                                 <input type="button" class="btn btn-info btn-lg" id="btn_lurah" onclick="changeLogin('login')" value="Lurah">
                             </div>
                         </center>
@@ -27,7 +30,7 @@
                             @csrf
                             <div class="row mb-3">
                                 <input type="hidden" name="level" />
-                                <label for="username" class="col-md-4 col-form-label text-md-end">{{ __('Username')
+                                <label for="username" class="col-md-4 col-form-label text-md-end" style="margin-left: -30px;">{{ __('Username')
                                     }}</label>
 
                                 <div class="col-md-6">
@@ -42,7 +45,7 @@
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password')
+                                <label for="password" class="col-md-4 col-form-label text-md-end" style="margin-left: -30px;">{{ __('Password')
                                     }}</label>
 
                                 <div class="col-md-6">
@@ -59,7 +62,7 @@
 
                             <div class="row mb-3">
                                 <div class="col-md-6 offset-md-4">
-                                    <div class="form-check">
+                                    <div class="form-check" style="margin-left: -30px;">
                                         <input class="form-check-input" type="checkbox" name="remember" id="remember" {{
                                             old('remember') ? 'checked' : '' }}>
 
@@ -70,24 +73,14 @@
                                 </div>
                             </div>
                             <br>
-
                             <div class="row mb-0">
                                 <div class="col-md-8 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
+                                    <button type="submit" class="btn btn-warning" style="margin-left: -120px; width: 100px;">
                                         {{ __('Login') }}
                                     </button>
-
-                                    {{-- @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                    @endif --}}
-                                </div>
-                                <br /><br />
-                                <div class="col-md-8 offset-md-4">
-                                    Don't have any account?
-                                    <a class="btn btn-link" href="{{ route('register') }}">
-                                        {{ __('Register Pengawas') }}
+                                    &nbsp;&nbsp; Petugas belum memiliki akun? Silakan
+                                    <a href="{{ route('register') }}">
+                                        {{ __('Register') }}
                                     </a>
                                 </div>
                             </div>

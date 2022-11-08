@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-16" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
@@ -16,16 +16,17 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
+    <link href="css/styles2.css" rel="stylesheet" />
+    <link href="css/bootstrap2.min.css" rel="stylesheet">
+     <!-- Icon Font Stylesheet -->
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
 </head>
 
 <body id="page-top">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+    <nav class="navbar navbar-expand-md navbar-dark bg-black shadow-sm fixed-top" id="mainNav">
             <div class="container">
-                {{-- <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a> --}}
-                <a class="navbar-brand">PORTAL OPERA CANDI</a>
-
+            <a class="navbar-brand" style="color: #ffc800">PORTAL OPERA CANDI</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -44,7 +45,7 @@
                         @guest
                         <div class="collapse navbar-collapse" id="navbarResponsive">
                             <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                                <li class="nav-item"><a class="nav-link" href="{{ url('/') }}">Home</a></li>
+                                <li class="nav-item"><a class="nav-link scrollto active" href="{{ url('/') }}">Home</a></li>
                                 <li class="nav-item"><a class="nav-link" href="{{ url('/tentang')}}">Tentang</a></li>
                                 <li class="nav-item"><a class="nav-link" href="{{ url('login')}}">Login</a></li>
                                 {{-- <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">Register</a> --}}

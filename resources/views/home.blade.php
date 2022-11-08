@@ -410,7 +410,6 @@
 </div>
 
 
-
 <script src="{{ asset('assets/js/plugins/chartjs.min.js') }}"></script>
 <script>
 
