@@ -29,7 +29,6 @@
                         <div id="accordion" role="tablist" aria-multiselectable="true" class="card-collapse">
                         </div>
                         <div id="datatable_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
-                            
                             <div class="row">
                                 <div class="col-sm-12 ">
                                     <table id="dataTableHover1" class="table table-condensed table-striped">
@@ -221,9 +220,8 @@
                         <div id="datatable_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
                             
                             <div class="row">
-                                <div class="col-sm-12 table-responsive">
-                                    <table class="table table-condensed table-striped">
-
+                                <div class="col-sm-12">
+                                    <table id="dataTableHover1" class="table table-condensed table-striped">
                                         @php 
                                             $arrTotalRealisasi = array();
                                         @endphp

@@ -33,7 +33,7 @@
 		<tbody>
 			@php $i=1 @endphp
             @foreach ($cetak as $data)
-			@if (Auth::user()->id)
+			@if ($data->user->id == Auth::user()->id)
 			<tr>
 				<td>{{ $i++ }}</td>
                 <td>{{ $data->petugas->nama_lengkap}}</td>

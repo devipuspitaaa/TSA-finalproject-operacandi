@@ -46,4 +46,8 @@ class User extends Authenticatable
     public function survei(){
         return $this->belongsTo('App\Models\Survei', 'survei_id', 'id');
     }
+
+    public function target(){
+        return $this->hasMany(Target::class);
+    }
 }

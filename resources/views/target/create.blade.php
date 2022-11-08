@@ -39,6 +39,21 @@
                         </div>
                     </div>
                     <div class="row">
+                        <label class="col-sm-2 col-form-label" for="nama_pengawas">Nama Pengawas</label>
+                        <div class="col-sm-10">
+                            <div class="form-group">
+                                <select name="pengawas_id" id="nama_pengawas" class="form-control">
+                                    <option selected disabled>pilih pengawas</option>
+                                    @foreach($pengawas as $pengawas)
+                                    @if(Auth::user() -> id == $pengawas -> id)
+                                    <option value="{{$pengawas->id}}">{{$pengawas->name}}</option>
+                                    @endif
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
                         <label class="col-sm-2 col-form-label">Jumlah Realisasi/hari</label>
                         <div class="col-sm-10">
                             <div class="form-group">

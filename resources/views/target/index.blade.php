@@ -18,12 +18,13 @@
                 <p>{{ $message }}</p>
             </div>
             @endif
-            <div class="table-responsive">
+            <div class="col-md-12">
             <table class="table" id="datatable">
                 <thead class="text-primary">
                 <tr>
                     <th>Tanggal</th>
                     <th>Nama Petugas</th>
+                    <th>Nama Pengawas</th>
                     <th>Jumlah Realisasi/hari</th>
                     @if (Auth::user()->role=='pengawas')
                     <th width="250px">Action</th>
@@ -34,9 +35,10 @@
                 </tr>
                 </thead>
                 @foreach ($targets as $data)
-                <tr>
+               <tr>
                     <td>{{ $data->tanggal }}</td>
                     <td>{{ $data->petugas->nama_lengkap}}</td>
+                    <td>{{ $data->pengawas->name}}</td>
                     <td>{{ $data->target }}</td>
                     @if (Auth::user()->role=='pengawas')
                     <td>
@@ -78,7 +80,7 @@
         </div>
         </div>
         <div class="float-left my-2 text-center">
-    <a class="btn btn-danger mt-3" href="{{route('dashboard.cetaktarget')}}">Cetak PDF</a>
+    <a class="btn btn-danger data-3" href="{{route('dashboard.cetaktarget')}}">Cetak PDF</a>
 </div>
     </div>
     @endsection

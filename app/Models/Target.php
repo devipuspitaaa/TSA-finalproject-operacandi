@@ -24,4 +24,9 @@ class Target extends Model
     {
         return $this->belongsTo(Petugas::class);
     }
+
+    public function pengawas()
+    {
+        return $this->belongsTo('App\Models\User', 'pengawas_id', 'id');
+    }
 }

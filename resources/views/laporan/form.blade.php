@@ -17,7 +17,7 @@
                 <p>{{ $message }}</p>
             </div>
             @endif
-            <div class="table-responsive">
+            <div class="col-sm-12 ">
             <form action="" method="POST" enctype="multipart/form-data">
                             {{ csrf_field() }}
                             <div class="row">
@@ -36,13 +36,13 @@
                              </div>
                          </div>
                          </div>
-                         <br><br>
+                         <br>
                         
                         <div class="action-buttons justify-content-between bg-white pt-2 pb-2">
                             <!-- <button type="submit" class="btn btn-success col-md-12">
                                 <i class="fas fa-check"></i> Cetak Laporan</button> -->
                             <a href="" onclick="this.href='/laporan-realisasi/'+ document.getElementById('tglAwal').value +
-                            '/'+ document.getElementById('tglAkhir').value " target="_blank"class="btn btn-success col-md-12">
+                            '/'+ document.getElementById('tglAkhir').value " target="_blank"class="btn btn-success">
                                 <i class="fa fa-print"></i> Cetak Laporan</a>
 
             </div>

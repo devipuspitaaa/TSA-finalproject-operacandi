@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Petugas;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Target;
 use Carbon\Carbon;
@@ -57,7 +58,9 @@ class TargetController extends Controller
     public function create()
     {
         $petugas = Petugas::all(); //mendapatkan data dari tabel petugas
-        return view('target.create', ['petugas' => $petugas]);
+        $pengawas = User::all()
+                    ->where('role', 'pengawas');
+        return view('target.create', ['petugas' => $petugas, 'pengawas' => $pengawas]);
     }
 
     /**
@@ -69,9 +72,12 @@ class TargetController extends Controller
     public function store(Request $request)
     {
         $petugas = Petugas::all();
+        $pengawas = User::all()
+                    ->where('role','pengawas');
         $request->validate([
             'tanggal' => Carbon::now(),
             'petugas_id' => 'required',
+            'pengawas_id' => 'required',
             'target' => 'required',
         ]);
 
@@ -79,13 +85,20 @@ class TargetController extends Controller
         $targets->tanggal = Carbon::now();
         $targets->target = $request->get('target');
         $targets->petugas_id = $request->get('petugas_id');
+        $targets->pengawas_id = $request->get('pengawas_id');
         $targets->save();
 
         $petugas = new Petugas;
         $petugas->id = $request->get('petugas_id');
 
+        $pengawas = new User;
+        $pengawas->id = $request->get('pengawas_id');
+
         //fungsi eloquent untuk menambah data dengan relasi belongsTO
         $targets->petugas()->associate($petugas);
+        $targets->save();
+
+        $targets->pengawas()->associate($pengawas);
         $targets->save();
 
         //jika data berhasil ditambahkan, akan kembali ke halaman utama
@@ -116,8 +129,10 @@ class TargetController extends Controller
     {
         $data = Target::find($id);
         $petugas = Petugas::all();
+        $pengawas = User::all()
+                    ->where('role', 'pengawas');
 
-        return view('target.edit', ['data' => $data, 'petugas' => $petugas]);
+        return view('target.edit', ['data' => $data, 'petugas' => $petugas, 'pengawas' => $pengawas]);
     }
 
     /**
@@ -132,6 +147,7 @@ class TargetController extends Controller
         $targets = Target::find($id);
         // $targets->tanggal = $request->tanggal;
         $targets->petugas_id = $request->petugas_id;
+        $targets->pengawas_id = $request->pengawas_id;
         $targets->target = $request->target;
         $targets->save();
 
