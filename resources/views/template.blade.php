@@ -171,6 +171,15 @@
                     Profile
                   </a>
                   @endif
+
+                  @if (Auth::user()->role=='petugas')
+                <!-- Dropdown - User Information -->
+                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                  <a class="dropdown-item" href="">
+                    <i class="nc-icon nc-single-02"></i>
+                    Profile
+                  </a>
+                  @endif
                   {{-- <a class="dropdown-item" href="#">
                     <i class="nc-icon nc-settings-gear-65"></i>
                     Settings

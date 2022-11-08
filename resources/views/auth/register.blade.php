@@ -60,7 +60,7 @@
                             <div class="col-md-6">
                                 <select name="role" value="{{ old('role') }}" required
                                             autocomplete="role" autofocus class="form-control" style="font-size: 14px;">
-                                            <option value="petugas" style="font-size: 14px;">Petugas</option>
+                                            <option name="role" id="role" value="petugas" style="font-size: 14px;">Petugas</option>
                                 </select>
 
                                 @error('role')
