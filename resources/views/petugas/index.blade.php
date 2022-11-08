@@ -4,16 +4,19 @@
 <br></br>
 
 <div class="col-md-12">
-    <div class="card">
+    <div class="card " style="background-color: #ffc800; padding-top:10px; padding-bottom:15px;">
         <div class="card-header">
             <center>
-                <h2 class="card-title"><strong> DATA PETUGAS</strong> </h2>
+                <h2 class="card-title"><strong> Data Petugas</strong> </h2>
             </center>
-            <br>
-            @if (Auth::user()->role=='admin')
-            <a class="btn btn-success my-2" href="{{ route('petugas.create') }}"> Tambah Data</a>
-            @endif
+            </div>
         </div>
+            <div class="card" style="padding-top:20px; padding-right:30px;">
+                <br>
+            @if (Auth::user()->role=='admin')
+            <a class="btn btn-success my-2" href="{{ route('petugas.create') }}" style="width: 150px; margin-left:20px;"> Tambah Data</a>
+            @endif
+            
         <div class="card-body">
             @if ($message = Session::get('success'))
             <div class="alert alert-success">

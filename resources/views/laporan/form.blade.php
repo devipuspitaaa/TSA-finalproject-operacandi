@@ -4,13 +4,15 @@
 <br></br>
 
 <div class="col-md-12">
-    <div class="card">
+    <div class="card " style="background-color: #ffc800; padding-top:10px; padding-bottom:15px;">
         <div class="card-header">
             <center>
-                <h2 class="card-title"><strong> LAPORAN DATA REALISASI PETUGAS </strong> </h2>
+                <h2 class="card-title"><strong> Laporan Data Realisasi Petugas</strong> </h2>
             </center>
-            <br>
+            </div>
         </div>
+            <div class="card" style="padding-top:20px; padding-right:30px;">
+                <br>
         <div class="card-body">
             @if ($message = Session::get('success'))
             <div class="alert alert-success">

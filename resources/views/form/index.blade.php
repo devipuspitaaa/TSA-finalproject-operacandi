@@ -4,17 +4,19 @@
 <br></br>
 <br></br>
 <div class="col-md-12">
-    <div class="card">
+    <div class="card " style="background-color: #ffc800; padding-top:10px; padding-bottom:15px;">
         <div class="card-header">
             <center>
-                <h2 class="card-title"><strong> DATA SURVEI</strong> </h2>
+                <h2 class="card-title"><strong> Data Survei</strong> </h2>
             </center>
-            
+            </div>
+        </div>
+            <div class="card" style="padding-top:20px; padding-right:30px;">
+                <br>
             @if (Auth::user()->role=='admin')
-            <a class="btn btn-success my-2" href="{{ route('form.create') }}"> Tambah Data</a>
+            <a class="btn btn-success my-2" href="{{ route('form.create') }}" style="width: 150px; margin-left:20px;"> Tambah Data</a>
             @endif
 
-        </div>
         <div class="card-body">
             @if ($message = Session::get('success'))
             <div class="alert alert-success">
