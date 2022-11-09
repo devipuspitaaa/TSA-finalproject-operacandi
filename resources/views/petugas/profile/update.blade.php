@@ -8,7 +8,7 @@
     <div class="card ">
         <div class="card-header ">
             <center>
-                <h4 class="card-title"><strong>Edit Data Pengawas</strong></h4>
+                <h4 class="card-title"><strong>Edit Data Petugas</strong></h4>
             </center>
         </div>
         <div class="card-body">
@@ -22,7 +22,7 @@
                 </ul>
             </div>
             @endif
-            <form method="post" action="{{route('pengawas.profile.update')}}">
+            <form method="post" action="{{route('petugas.profile.update')}}">
             {{csrf_field()}}
                 <div class="featured__controls">
                     <div class="row">

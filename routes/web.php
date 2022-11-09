@@ -5,6 +5,7 @@ use App\Http\Controllers\SurveiController;
 use App\Http\Controllers\PengawasController;
 use App\Http\Controllers\ProfilePengawasController;
 use App\Http\Controllers\PetugasController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\TargetController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -32,6 +33,7 @@ Auth::routes();
 Route::get('/tentang', function () {
     return view('tentang');
 });
+
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get("/home", [HomeController::class, 'index'])->name("home");
 Route::get('survey-cetak', [App\Http\Controllers\HomeController::class, 'cetaksurvey'])->name('dashboard.cetaksurvey');
@@ -58,14 +60,21 @@ Route::get('inputPengawas', [App\Http\Controllers\PengawasController::class, 'cr
 Route::get('/profile-pengawas', [ProfilePengawasController::class, 'index'])->name('pengawas.profile.index');   
 Route::post('/profilepengawas-update', [ProfilePengawasController::class, 'updateprofile'])->name('pengawas.profile.update');
 
+/**Profile Petugas */ 
+Route::get('/profile-petugas', [ProfilePetugasController::class, 'index'])->name('petugas.profile.index');   
+Route::post('/profilepetugas-update', [ProfilePetugasController::class, 'updateprofile'])->name('petugas.profile.update');
+
 /** Target */
 Route::resource('target', TargetController::class);
 Route::post("target/update/{id}", [TargetController::class, 'update']);
 Route::get('inputTarget', [App\Http\Controllers\TargetController::class, 'create'])->name('inputTarget');
 Route::get('target-cetak', [App\Http\Controllers\TargetController::class, 'cetaktarget'])->name('dashboard.cetaktarget');
-
-
 /** End : Module Target */
+
+/** User */
+Route::get('createuser', [App\Http\Controllers\PenggunaController::class, 'create'])->name('admin.user.create');   
+Route::post('createuser', [App\Http\Controllers\PenggunaController::class, 'store'])->name('admin.user.create');  
+/** End : Module User */
 
 Route::get('inputForm', function () { return view('inputForm'); })->middleware('checkRole:admin');
 Route::get('inputPetugas', function () { return view('inputPetugas'); })->middleware('checkRole:admin');
@@ -76,3 +85,4 @@ Route::get('dashboard', function () { return view('dashboard'); })->middleware([
 /** Laporan */
 Route::get('form-laporan', [App\Http\Controllers\HomeController::class, 'formlaporan'])->name('laporan.form');
 Route::get('laporan-realisasi/{tglAwal}/{tglAkhir}', [App\Http\Controllers\HomeController::class, 'laporanrealisasi'])->name('laporan.cetaklaporan');
+

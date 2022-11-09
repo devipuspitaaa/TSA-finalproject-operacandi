@@ -59,8 +59,14 @@
               <p>Input Survei</p>
             </a>
           </li>
+          <li class="nav-item {{ set_active(['admin.user.create']) }}">
+            <a href="{{ route('admin.user.create')}}">
+              <i class="fa fa-user-plus "></i>
+              <p>Tambah User</p>
+            </a>
+          </li>
           @endif
-          @if (Auth::user()->role=='pengawas')
+          @if (Auth::user()->role=='petugas')
           <li class="nav-item {{ set_active(['target.index', 'target.create', 'target.edit']) }}">
             <a href="{{ route('target.index')}}">
               <i class="fa fa-file-text "></i>
@@ -78,11 +84,19 @@
             </a>
             <div class="collapse show" id="componentsExamples">
               <ul class="nav">
+              @if (Auth::user()->role=='petugas')
+              <li class="nav-item {{ set_active(['pengawas.index', 'pengawas.create', 'pengawas.edit']) }}">
+                  <a href="{{ route('pengawas.profile.index')}}">
+                  <i class="fa fa-users "></i>
+                    <span class="sidebar-normal" style="margin-left:48px;"> Pengawas </span>
+                  </a>
+                </li>
+                @endif
               @if (Auth::user()->role=='pengawas')
               <li class="nav-item {{ set_active(['pengawas.index', 'pengawas.create', 'pengawas.edit']) }}">
                   <a href="{{ route('pengawas.profile.index')}}">
                   <i class="fa fa-users "></i>
-                    <span class="sidebar-normal" style="margin-left:48px;"> Biodata Pengawas </span>
+                    <span class="sidebar-normal" style="margin-left:48px;"> Pengawas </span>
                   </a>
                 </li>
                 @endif
@@ -90,14 +104,14 @@
                 <li class="nav-item {{ set_active(['pengawas.index', 'pengawas.create', 'pengawas.edit']) }}">
                   <a href="{{ route('pengawas.index')}}">
                   <i class="fa fa-user" style="margin-left:35px;"></i>
-                    <span class="sidebar-normal"> Biodata Pengawas </span>
+                    <span class="sidebar-normal"> Pengawas </span>
                   </a>
                 </li>
                 @endif
                 <li class="nav-item {{ set_active(['petugas.index', 'petugas.create', 'petugas.edit']) }}">
                   <a href="{{ route('petugas.index')}}">
                   <i class="fa fa-user" style="margin-left:35px;"></i>
-                    <span class="sidebar-normal"> Biodata Petugas </span>
+                    <span class="sidebar-normal"> Petugas </span>
                   </a>
                 </li>
               </ul>
