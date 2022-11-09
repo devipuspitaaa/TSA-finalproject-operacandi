@@ -22,7 +22,7 @@ class Target extends Model
     ];
     public function petugas()
     {
-        return $this->belongsTo(Petugas::class);
+        return $this->belongsTo('App\Models\User', 'petugas_id', 'id');
     }
 
     public function pengawas()

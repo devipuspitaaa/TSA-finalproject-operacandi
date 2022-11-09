@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Petugas;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Target;
@@ -57,7 +56,8 @@ class TargetController extends Controller
      */
     public function create()
     {
-        $petugas = Petugas::all(); //mendapatkan data dari tabel petugas
+        $petugas = User::all()
+                    ->where('role', 'petugas'); //mendapatkan data dari tabel petugas
         $pengawas = User::all()
                     ->where('role', 'pengawas');
         return view('target.create', ['petugas' => $petugas, 'pengawas' => $pengawas]);
@@ -88,7 +88,7 @@ class TargetController extends Controller
         $targets->pengawas_id = $request->get('pengawas_id');
         $targets->save();
 
-        $petugas = new Petugas;
+        $petugas = new User;
         $petugas->id = $request->get('petugas_id');
 
         $pengawas = new User;
@@ -128,7 +128,8 @@ class TargetController extends Controller
     public function edit($id)
     {
         $data = Target::find($id);
-        $petugas = Petugas::all();
+        $petugas = User::all()
+                    ->where('role', 'petugas');
         $pengawas = User::all()
                     ->where('role', 'pengawas');
 

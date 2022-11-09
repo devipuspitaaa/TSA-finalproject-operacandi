@@ -32,7 +32,9 @@
                                 <select name="petugas_id" id="nama_petugas" class="form-control">
                                     <option selected disabled>pilih petugas</option>
                                     @foreach($petugas as $petugas)
-                                    <option value="{{$petugas->id}}">{{$petugas->nama_lengkap}}</option>
+                                    @if(Auth::user() -> id == $petugas -> id)
+                                    <option value="{{$petugas->id}}">{{$petugas->name}}</option>
+                                    @endif
                                     @endforeach
                                 </select>
                             </div>
@@ -45,9 +47,7 @@
                                 <select name="pengawas_id" id="nama_pengawas" class="form-control">
                                     <option selected disabled>pilih pengawas</option>
                                     @foreach($pengawas as $pengawas)
-                                    @if(Auth::user() -> id == $pengawas -> id)
                                     <option value="{{$pengawas->id}}">{{$pengawas->name}}</option>
-                                    @endif
                                     @endforeach
                                 </select>
                             </div>
