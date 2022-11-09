@@ -22,7 +22,7 @@
                 </ul>
             </div>
             @endif
-            <form method="post" action="{{route('pengawas.profile.update')}}">
+            <form method="post" action="{{route('profilepengawas.update')}}">
             {{csrf_field()}}
                 <div class="featured__controls">
                     <div class="row">

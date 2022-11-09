@@ -57,8 +57,8 @@ Route::get('inputPengawas', [App\Http\Controllers\PengawasController::class, 'cr
 /** End : Module Petugas */
 
 /**Profile Pengawas */ 
-Route::get('/profile-pengawas', [ProfilePengawasController::class, 'index'])->name('pengawas.profile.index');   
-Route::post('/profilepengawas-update', [ProfilePengawasController::class, 'updateprofile'])->name('pengawas.profile.update');
+Route::get('/profile-pengawas', [ProfilePengawasController::class, 'index'])->name('profilepengawas.index');   
+Route::post('/profilepengawas-update', [ProfilePengawasController::class, 'updateprofile'])->name('profilepengawas.update');
 
 /**Profile Petugas */ 
 Route::get('/profile-petugas', [ProfilePetugasController::class, 'index'])->name('petugas.profile.index');   

@@ -33,7 +33,7 @@ class ProfilePengawasController extends Controller
         $pengawas->nip = $request->input('nip');
         $pengawas->survei_id = $request->survei;
         $pengawas->save();
-        return redirect()->route('pengawas.profile.index')
+        return redirect()->route('profilepengawas.index')
             ->with('success', 'Data Berhasil Diupdate');
     }
 }

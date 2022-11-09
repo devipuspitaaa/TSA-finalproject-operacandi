@@ -74,6 +74,8 @@
             </a>
           </li>
           @endif
+
+          @if (Auth::user()->role != 'pengawas' && Auth::user()->role != 'petugas')
           <li
             class="nav-item {{ set_active(['pengawas.index','pengawas.create', 'petugas.index', 'petugas.create']) }}">
             <a data-toggle="collapse" href="#componentsExamples" aria-expanded="true" class="">
@@ -86,37 +88,33 @@
               <ul class="nav">
               @if (Auth::user()->role=='petugas')
               <li class="nav-item {{ set_active(['pengawas.index', 'pengawas.create', 'pengawas.edit']) }}">
-                  <a href="{{ route('pengawas.profile.index')}}">
+                  <a href="{{ route('profilepengawas.index')}}">
                   <i class="fa fa-users "></i>
                     <span class="sidebar-normal" style="margin-left:48px;"> Pengawas </span>
                   </a>
                 </li>
-                @endif
-              @if (Auth::user()->role=='pengawas')
-              <li class="nav-item {{ set_active(['pengawas.index', 'pengawas.create', 'pengawas.edit']) }}">
-                  <a href="{{ route('pengawas.profile.index')}}">
-                  <i class="fa fa-users "></i>
-                    <span class="sidebar-normal" style="margin-left:48px;"> Pengawas </span>
-                  </a>
-                </li>
-                @endif
-                @if (Auth::user()->role != 'pengawas')
+              @endif
+              @if (Auth::user()->role != 'pengawas' && Auth::user()->role != 'petugas')
                 <li class="nav-item {{ set_active(['pengawas.index', 'pengawas.create', 'pengawas.edit']) }}">
                   <a href="{{ route('pengawas.index')}}">
                   <i class="fa fa-user" style="margin-left:35px;"></i>
                     <span class="sidebar-normal"> Pengawas </span>
                   </a>
                 </li>
-                @endif
+              @endif
+
+              @if (Auth::user()->role != 'pengawas' && Auth::user()->role != 'petugas')
                 <li class="nav-item {{ set_active(['petugas.index', 'petugas.create', 'petugas.edit']) }}">
                   <a href="{{ route('petugas.index')}}">
                   <i class="fa fa-user" style="margin-left:35px;"></i>
                     <span class="sidebar-normal"> Petugas </span>
                   </a>
                 </li>
+              @endif
               </ul>
             </div>
-            <li class="nav-item {{ set_active(['laporan']) }}">
+            @endif
+            <li class="nav-item {{ set_active(['laporan.form']) }}">
             <a href="{{ route('laporan.form')}}">
               <i class="fa fa-file-pdf-o "></i>
               <p>Laporan Realisasi</p>
@@ -171,7 +169,7 @@
                 @if (Auth::user()->role=='pengawas')
                 <!-- Dropdown - User Information -->
                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                  <a class="dropdown-item" href="{{ route ('pengawas.profile.index') }}">
+                  <a class="dropdown-item" href="{{ route ('profilepengawas.index') }}">
                     <i class="nc-icon nc-single-02"></i>
                     Profile
                   </a>

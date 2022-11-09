@@ -13,10 +13,6 @@
         </div>
             <div class="card" style="padding-top:20px; padding-right:30px;">
                 <br>
-            @if (Auth::user()->role=='admin')
-            <a class="btn btn-success my-2" href="{{ route('petugas.create') }}" style="width: 150px; margin-left:20px;"> Tambah Data</a>
-            @endif
-            
         <div class="card-body">
             @if ($message = Session::get('success'))
             <div class="alert alert-success">
@@ -83,12 +79,7 @@
                                         <i class="fa fa-times"></i>
                                     </button>
                                 </form> -->
-                                <a href="{{ route('petugas.edit',$data->id) }}">
-                                    <button type="button" rel="tooltip" class="btn btn-success btn-icon btn-sm ">
-                                        <i class="fa fa-edit"></i>
-                                    </button>
-                                </a>
-                                <a href="{{ url('petugas/hapus/'. $data->id) }}" onclick="return confirm('Apakah anda ingin menghapus data ini ?')" class="btn btn-danger btn-icon btn-sm "><i class="fa fa-times"></i></a>
+                                <center><a href="{{ url('petugas/hapus/'. $data->id) }}" onclick="return confirm('Apakah anda ingin menghapus data ini ?')" class="btn btn-danger btn-icon btn-sm "><i class="fa fa-times"></i></a></center>
                             </td>
                             @endif
                         </tr>

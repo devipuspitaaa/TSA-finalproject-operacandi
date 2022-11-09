@@ -13,9 +13,6 @@
         </div>
             <div class="card" style="padding-top:20px; padding-right:30px;">
                 <br>
-            @if (Auth::user()->role=='admin')
-            <a class="btn btn-success" href="{{ route('pengawas.create') }}" style="width: 150px; margin-left:20px;"> Tambah Data</a>
-            @endif
         <div class="card-body">
             @if ($message = Session::get('success'))
             <div class="alert alert-success">
@@ -70,16 +67,11 @@
                             <td>{{ $data->nip }}</td>
                             @if (Auth::user()->role=='admin')
                             <td>
-                                <form action="{{ route('pengawas.destroy',$data->id) }}" method="POST">
-                                    <a href="{{ route('pengawas.edit',$data->id) }}">
-                                        <button type="button" rel="tooltip" class="btn btn-success btn-icon btn-sm ">
-                                            <i class="fa fa-edit"></i>
-                                        </button>
-                                    </a>
+                                <center><form action="{{ route('pengawas.destroy',$data->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" rel="tooltip" class="btn btn-danger btn-icon btn-sm ">
-                                        <i class="fa fa-times"></i>
+                                        <i class="fa fa-times"></i></center>
                                     </button>
                                 </form>
                             </td>
