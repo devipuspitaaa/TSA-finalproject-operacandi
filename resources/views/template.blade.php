@@ -75,6 +75,15 @@
           </li>
           @endif
 
+          @if (Auth::user()->role=='pengawas')
+          <li class="nav-item {{ set_active(['target.index', 'target.create', 'target.edit']) }}">
+            <a href="{{ route('target.index')}}">
+              <i class="fa fa-file-text "></i>
+              <p>Validasi Data</p>
+            </a>
+          </li>
+          @endif
+
           @if (Auth::user()->role != 'pengawas' && Auth::user()->role != 'petugas')
           <li
             class="nav-item {{ set_active(['pengawas.index','pengawas.create', 'petugas.index', 'petugas.create']) }}">
@@ -187,7 +196,7 @@
                   @if (Auth::user()->role=='petugas')
                 <!-- Dropdown - User Information -->
                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                  <a class="dropdown-item" href="">
+                  <a class="dropdown-item" href="{{ route ('petugas.profile.index') }}">
                     <i class="nc-icon nc-single-02"></i>
                     Profile
                   </a>

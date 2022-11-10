@@ -46,7 +46,10 @@ class HomeController extends Controller
 
             // @TODO 2 : Tampil data petugas berdasarkan pengawas = pengawas_id
             $pengawas_id = $kolom->id;
-            $dt_petugas = DB::table("petugas")->where('pengawas_id', $pengawas_id)->get();
+            $dt_petugas = DB::table("users")
+                            ->where('pengawas_id', $pengawas_id)
+                            ->where('role', 'petugas')
+                            ->get();
 
 
             $total_target_terkini = 0;
@@ -56,7 +59,10 @@ class HomeController extends Controller
 
                 // @TODO 3 : Tampil data target berdsarkan petugas
                 $petugas_id = $kolom_petugas->id;
-                $dt_target = DB::table("targets")->where('petugas_id', $petugas_id)->get();
+                $dt_target = DB::table("targets")
+                            ->where('petugas_id', $petugas_id)
+                            ->where('status', '1')
+                            ->get();
 
                 array_push($arr_petugas, array(
 
@@ -76,7 +82,10 @@ class HomeController extends Controller
 
 
         // kolom target
-        $kolomTable = DB::table("targets")->select("tanggal")->groupBy("tanggal")->get();
+        $kolomTable = DB::table("targets")
+        ->select("tanggal")
+        ->where('status', '1')
+        ->groupBy("tanggal")->get();
 
 
 
@@ -108,7 +117,10 @@ class HomeController extends Controller
             $target = $totalPengawas * $totalPetugas;
 
             // data realisasi target
-            $dt_realisasi = DB::table("targets")->groupBy("tanggal")->get();
+            $dt_realisasi = DB::table("targets")
+            ->groupBy("tanggal")
+            ->where('status', '1')
+            ->get();
             
             // nilai temporary 
             $temp_target = 0;
@@ -118,7 +130,10 @@ class HomeController extends Controller
             foreach ( $dt_realisasi AS $urutan => $kolom ) {
 
                 // ambil data realisasi target detail berdasarkan tanggal
-                $dt_realisasi_by_tanggal = DB::table("targets")->where(["tanggal" => $kolom->tanggal])->get();
+                $dt_realisasi_by_tanggal = DB::table("targets")
+                ->where(["tanggal" => $kolom->tanggal])
+                ->where('status', '1')
+                ->get();
                 $total_realisasi = 0;
                 foreach ( $dt_realisasi_by_tanggal AS $kolom_realisasi ) {
 
@@ -157,7 +172,9 @@ class HomeController extends Controller
         $dt_entry = array();
 
         // ambil data pengawas 
-        $dt_pengawas = DB::table("pengawas")->get();
+        $dt_pengawas = DB::table("users")
+                        ->where('role', 'pengawas')
+                        ->get();
 
         /**
          *  1. Tampil data pengawas get()
@@ -171,7 +188,10 @@ class HomeController extends Controller
 
             // @TODO 2 : Tampil data petugas berdasarkan pengawas = pengawas_id
             $pengawas_id = $kolom->id;
-            $dt_petugas = DB::table("petugas")->where('pengawas_id', $pengawas_id)->get();
+            $dt_petugas = DB::table("users")
+                            ->where('pengawas_id', $pengawas_id)
+                            ->where('role', 'petugas')
+                            ->get();
 
 
             $total_target_terkini = 0;
@@ -181,7 +201,10 @@ class HomeController extends Controller
 
                 // @TODO 3 : Tampil data target berdsarkan petugas
                 $petugas_id = $kolom_petugas->id;
-                $dt_target = DB::table("targets")->where('petugas_id', $petugas_id)->get();
+                $dt_target = DB::table("targets")
+                ->where('petugas_id', $petugas_id)
+                ->where('status', '1')
+                ->get();
 
                 array_push($arr_petugas, array(
 
@@ -201,29 +224,34 @@ class HomeController extends Controller
 
 
         // kolom target
-        $kolomTable = DB::table("targets")->select("tanggal")->groupBy("tanggal")->get();
+        $kolomTable = DB::table("targets")->select("tanggal")
+        ->groupBy("tanggal")
+        ->where('status', '1')
+        ->get();
 
 
 
         // area ---- komulatif
         $dt_survey = DB::table("survei")->first();
         $dt_statistik = $this->statistik();
-    $pdf = PDF::loadView('dashboard.cetaksurvey', compact('dt_entry', 'kolomTable', 'dt_survey', 'dt_statistik'));
-    return $pdf->stream('Laporan-Data-Target-Survei.pdf');
-    }
+        
+        $pdf = PDF::loadView('dashboard.cetaksurvey', compact('dt_entry', 'kolomTable', 'dt_survey', 'dt_statistik'));
+        return $pdf->stream('Laporan-Data-Target-Survei.pdf');
+        }
 
-    public function formlaporan()
-    {
-        return view('laporan.form');
-    }
+        public function formlaporan()
+        {
+            return view('laporan.form');
+        }
 
-    public function laporanrealisasi($tglAwal, $tglAkhir){
-        $cetak = Target::orderBy('created_at','ASC')
-                            ->whereBetween('tanggal', [$tglAwal, $tglAkhir])
-                            ->get();
+        public function laporanrealisasi($tglAwal, $tglAkhir){
+            $cetak = Target::orderBy('created_at','ASC')
+                                ->whereBetween('tanggal', [$tglAwal, $tglAkhir])
+                                ->where('status', '1')
+                                ->get();
 
-        $pdf = PDF::loadView('laporan.cetaklaporan', ['cetak' => $cetak]);
-        return $pdf->stream('Laporan-Data-Realisasi-Petugas.pdf');
-    }
+            $pdf = PDF::loadView('laporan.cetaklaporan', ['cetak' => $cetak]);
+            return $pdf->stream('Laporan-Data-Realisasi-Petugas.pdf');
+        }
 }
 

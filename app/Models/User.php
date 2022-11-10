@@ -51,4 +51,8 @@ class User extends Authenticatable
     public function target(){
         return $this->hasMany(Target::class);
     }
+
+    public function pengawas(){
+    	return $this->belongsTo('App\Models\User', 'pengawas_id', 'id');
+    }
 }

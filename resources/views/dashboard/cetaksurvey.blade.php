@@ -36,7 +36,7 @@
                     @endphp
                     @foreach ( $dt_entry AS $kolom )
                     <tr data-toggle="collapse" data-target="#demo1" class="accordion-toggle">
-                    <td>{{ $kolom['infopengawas']->nama_lengkap }}</td>
+                    <td>{{ $kolom['infopengawas']->name }}</td>
                     <td>
                         @php
 

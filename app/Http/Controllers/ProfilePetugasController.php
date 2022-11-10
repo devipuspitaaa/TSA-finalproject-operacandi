@@ -32,7 +32,7 @@ class ProfilePetugasController extends Controller
         $petugas->no_tlp = $request->input('no_tlp');
         $petugas->alamat = $request->input('alamat');
         $petugas->nip = $request->input('nip');
-        $petugas->survei_id = $request->survei;
+        $petugas->pengawas_id = $request->pengawas;
         $petugas->save();
         return redirect()->route('petugas.profile.index')
             ->with('success', 'Data Berhasil Diupdate');

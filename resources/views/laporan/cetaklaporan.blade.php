@@ -21,30 +21,95 @@
 		<h6><a target="_blank" href="">OPERA CANDI</a></h5>
 	</center>
  
+	@if (Auth::user()->role=='petugas')
 	<table class='table table-bordered'>
 		<thead>
 			<tr>
 				<th>No</th>
+				<th>Nama Pengawas</th>
                 <th>Nama Petugas</th>
                 <th>Tanggal</th>
-                <th>Target</th>
+                <th>Realisasi</th>
 			</tr>
 		</thead>
 		<tbody>
 			@php $i=1 @endphp
             @foreach ($cetak as $data)
-			@if ($data->user->id == Auth::user()->id)
+			@if ($data->petugas->id == Auth::user()->id)
 			<tr>
 				<td>{{ $i++ }}</td>
-                <td>{{ $data->petugas->nama_lengkap}}</td>
+				<td>{{ $data->pengawas->name}}</td>
+                <td>{{ $data->petugas->name}}</td>
                 <td>{{ $data->tanggal }}</td>
                 <td>{{ $data->target }}</td>
 				</tbody>
 				@endif
-                                @endforeach
+				@endforeach
+					
                             </table>
                         </div>
                     </td>
             </tr>
+			@endif
+
+			@if (Auth::user()->role=='pengawas')
+			<table class='table table-bordered'>
+				<thead>
+					<tr>
+						<th>No</th>
+						<th>Nama Pengawas</th>
+						<th>Nama Petugas</th>
+						<th>Tanggal</th>
+						<th>Realisasi</th>
+					</tr>
+				</thead>
+				<tbody>
+					@php $i=1 @endphp
+					@foreach ($cetak as $data)
+					@if ($data->pengawas->id == Auth::user()->id)
+					<tr>
+						<td>{{ $i++ }}</td>
+						<td>{{ $data->pengawas->name}}</td>
+						<td>{{ $data->petugas->name}}</td>
+						<td>{{ $data->tanggal }}</td>
+						<td>{{ $data->target }}</td>
+				</tbody>
+						@endif
+						@endforeach
+							
+									</table>
+								</div>
+							</td>
+					</tr>
+					@endif
+
+					@if (Auth::user()->role!='petugas' && Auth::user()->role!='pengawas')
+					<table class='table table-bordered'>
+						<thead>
+							<tr>
+								<th>No</th>
+								<th>Nama Pengawas</th>
+								<th>Nama Petugas</th>
+								<th>Tanggal</th>
+								<th>Realisasi</th>
+							</tr>
+						</thead>
+						<tbody>
+							@php $i=1 @endphp
+							@foreach ($cetak as $data)
+							<tr>
+								<td>{{ $i++ }}</td>
+								<td>{{ $data->pengawas->name}}</td>
+								<td>{{ $data->petugas->name}}</td>
+								<td>{{ $data->tanggal }}</td>
+								<td>{{ $data->target }}</td>
+						</tbody>
+								@endforeach
+									
+											</table>
+										</div>
+									</td>
+							</tr>
+							@endif
     </body>
  </html>

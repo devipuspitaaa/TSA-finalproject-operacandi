@@ -5,12 +5,15 @@
 
 {{-- Input Data section begin --}}
 <div class="col-md-12">
-    <div class="card ">
-        <div class="card-header ">
+    <div class="card " style="background-color: #ffc800; padding-top:10px; padding-bottom:15px;">
+        <div class="card-header">
             <center>
-                <h4 class="card-title"><strong>Edit Data Pengawas</strong></h4>
+                <h2 class="card-title"><strong> Update Profile Pengawas</strong> </h2>
             </center>
+            </div>
         </div>
+            <div class="card" style="padding-top:20px; padding-right:30px;">
+                <br>
         <div class="card-body">
             @if ($errors->any())
             <div class="alert alert-danger">

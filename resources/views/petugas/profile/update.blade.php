@@ -34,13 +34,13 @@
                         </div>
                     </div>
                     <div class="row">
-                        <label class="col-sm-2 col-form-label" for="survei_id">Nama Survei</label>
+                        <label class="col-sm-2 col-form-label">Nama Pengawas</label>
                         <div class="col-sm-10">
                             <div class="form-group">
-                                <select name="survei" id="survei" class="form-control">
-                                    <option value="{{ Auth::user()->survei_id }}" selected>{{ Auth::user()->survei->nama_survei }}</option>
-                                    @foreach($survei as $survei)
-                                    <option value="{{$survei->id}}">{{$survei->nama_survei}}</option>
+                                <select name="pengawas" id="pengawas" class="form-control">
+                                    <option value="{{ Auth::user()->pengawas_id }}" selected disabled>{{ Auth::user()->pengawas->name }}</option>
+                                    @foreach($pengawas as $pengawas)
+                                    <option value="{{$pengawas->id}}">{{$pengawas->name}}</option>
                                     @endforeach
                                 </select>
                             </div>

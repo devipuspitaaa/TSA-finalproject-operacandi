@@ -133,7 +133,7 @@
                                                             )
                                                             <tbody>
                                                                 <td>{{ $nomor + 1 }}</td>
-                                                                <td>{{ $kolom_petugas['petugas']->nama_lengkap }}</td>
+                                                                <td>{{ $kolom_petugas['petugas']->name }}</td>
                                                                 <td>
                                                                     @php
 
@@ -287,7 +287,7 @@
                                                             @foreach ( $kolom['infopetugas'] AS $nomor => $kolom_petugas )
                                                             <tbody>
                                                                 <td>{{ $nomor + 1 }}</td>
-                                                                <td>{{ $kolom_petugas['petugas']->nama_lengkap }}</td>
+                                                                <td>{{ $kolom_petugas['petugas']->name }}</td>
 
                                                                 @foreach ( $kolomTable AS $isi_kolom )
 
