@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Survei;
+use Illuminate\Support\Facades\Validator;
 
 class ProfilePetugasController extends Controller
 {
@@ -21,6 +22,11 @@ class ProfilePetugasController extends Controller
 
     public function updateprofile(Request $request)
     {
+        $this->validate($request, [
+            'no_ktp' => 'string|max:255|unique:users',
+            'no_tlp' => 'string|max:255|unique:users',
+            'nip' => 'string|max:255|unique:users'
+        ]);
 
         $petugas_id = Auth::user()->id;
         $petugas = User::findOrFail($petugas_id);
