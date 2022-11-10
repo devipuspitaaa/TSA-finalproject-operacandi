@@ -10,6 +10,7 @@ use Carbon\Carbon;
 use Auth;
 use PDF;
 use File;
+use Session;
 use League\CommonMark\CommonMarkConverter;
 
 class TargetController extends Controller
@@ -184,9 +185,29 @@ class TargetController extends Controller
     
     public function cetaktarget()
     {
-        $targets = Target::all();
+        $targets = Target::all()
+                   ->where('status', '1');
 
     $pdf = PDF::loadView('dashboard.cetaktarget', ['targets' => $targets]);
     return $pdf->stream('Laporan-Data-Target-Survei.pdf');
+    }
+
+    
+    public function valid($id){
+        Target::find($id)->update([
+            'status'=>1,
+            'tgl_validasi'=> date("Y-m-d H:i:s")
+        ]);
+        Session::flash('update','Update Data Realisasi Target Petugas Berhasil');
+        return redirect()->route('target.index');
+    }
+
+    public function notvalid($id){
+        Target::find($id)->update([
+            'status'=>2,
+            'tgl_validasi'=> date("Y-m-d H:i:s")
+        ]);
+        Session::flash('update','Update Data Realisasi Target Petugas Berhasil');
+        return redirect()->route('target.index');
     }
 }

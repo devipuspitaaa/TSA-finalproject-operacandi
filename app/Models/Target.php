@@ -18,6 +18,8 @@ class Target extends Model
         'tanggal',
         'petugas_id',
         'target',
+        'status',
+        'tgl_validasi'
 
     ];
     public function petugas()

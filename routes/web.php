@@ -5,6 +5,7 @@ use App\Http\Controllers\SurveiController;
 use App\Http\Controllers\PengawasController;
 use App\Http\Controllers\ProfilePengawasController;
 use App\Http\Controllers\PetugasController;
+use App\Http\Controllers\ProfilePetugasController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TargetController;
 use Illuminate\Support\Facades\Route;
@@ -86,3 +87,5 @@ Route::get('dashboard', function () { return view('dashboard'); })->middleware([
 Route::get('form-laporan', [App\Http\Controllers\HomeController::class, 'formlaporan'])->name('laporan.form');
 Route::get('laporan-realisasi/{tglAwal}/{tglAkhir}', [App\Http\Controllers\HomeController::class, 'laporanrealisasi'])->name('laporan.cetaklaporan');
 
+Route::get('/status-valid/{id}', '\App\Http\Controllers\TargetController@valid')->name('target.valid');
+Route::get('/status-tdkvalid/{id}', '\App\Http\Controllers\TargetController@notvalid')->name('target.tdkvalid');

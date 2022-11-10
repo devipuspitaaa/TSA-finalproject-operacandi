@@ -25,14 +25,29 @@
             <form method="post" action="{{ url('target/update/'.$data->id) }}" class="form-horizontal">
                 @csrf
                 <div class="featured__controls">
-                    <div class="row">
+                <div class="row">
                         <label class="col-sm-2 col-form-label" for="nama_petugas">Nama Petugas</label>
                         <div class="col-sm-10">
                             <div class="form-group">
                                 <select name="petugas_id" id="nama_petugas" class="form-control">
                                     <option selected disabled>pilih petugas</option>
                                     @foreach($petugas as $petugas)
-                                    <option value="{{$petugas->id}}" @php if ( $petugas->id == $data->petugas_id ) echo 'selected="selected"'; @endphp>{{$petugas->nama_lengkap}}</option>
+                                    @if(Auth::user() -> id == $petugas -> id)
+                                    <option value="{{$petugas->id}}">{{$petugas->name}}</option>
+                                    @endif
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="col-sm-2 col-form-label" for="nama_pengawas">Nama Pengawas</label>
+                        <div class="col-sm-10">
+                            <div class="form-group">
+                                <select name="pengawas_id" id="nama_pengawas" class="form-control">
+                                    <option selected disabled>pilih pengawas</option>
+                                    @foreach($pengawas as $pengawas)
+                                    <option value="{{$pengawas->id}}">{{$pengawas->name}}</option>
                                     @endforeach
                                 </select>
                             </div>
