@@ -116,7 +116,7 @@
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
-                <a class="btn btn-success" href="{{ route('petugas.index') }}">Kembali</a>
+                <a class="btn btn-success" href="/home">Kembali</a>
             </form>
         </div>
     </div>

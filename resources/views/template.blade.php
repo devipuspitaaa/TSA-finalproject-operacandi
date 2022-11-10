@@ -187,7 +187,16 @@
                   @if (Auth::user()->role=='admin')
                 <!-- Dropdown - User Information -->
                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                  <a class="dropdown-item" href="">
+                  <a class="dropdown-item" href="{{ route ('profileadmin.index') }}">
+                    <i class="nc-icon nc-single-02"></i>
+                    Profile
+                  </a>
+                  @endif
+
+                  @if (Auth::user()->role=='lurah')
+                <!-- Dropdown - User Information -->
+                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                  <a class="dropdown-item" href="{{ route ('profilelurah.index') }}">
                     <i class="nc-icon nc-single-02"></i>
                     Profile
                   </a>

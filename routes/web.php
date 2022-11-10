@@ -4,6 +4,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SurveiController;
 use App\Http\Controllers\PengawasController;
 use App\Http\Controllers\ProfilePengawasController;
+use App\Http\Controllers\ProfileAdminController;
+use App\Http\Controllers\ProfileLurahController;
 use App\Http\Controllers\PetugasController;
 use App\Http\Controllers\ProfilePetugasController;
 use App\Http\Controllers\UserController;
@@ -60,6 +62,14 @@ Route::get('inputPengawas', [App\Http\Controllers\PengawasController::class, 'cr
 /**Profile Pengawas */ 
 Route::get('/profile-pengawas', [ProfilePengawasController::class, 'index'])->name('profilepengawas.index');   
 Route::post('/profilepengawas-update', [ProfilePengawasController::class, 'updateprofile'])->name('profilepengawas.update');
+
+/**Profile Admin */ 
+Route::get('/profile-admin', [ProfileAdminController::class, 'index'])->name('profileadmin.index');   
+Route::post('/profileadmin-update', [ProfileAdminController::class, 'updateprofile'])->name('profileadmin.update');
+
+/**Profile Lurah */ 
+Route::get('/profile-lurah', [ProfileLurahController::class, 'index'])->name('profilelurah.index');   
+Route::post('/profilelurah-update', [ProfileLurahController::class, 'updateprofile'])->name('profilelurah.update');
 
 /**Profile Petugas */ 
 Route::get('/profile-petugas', [ProfilePetugasController::class, 'index'])->name('petugas.profile.index');   

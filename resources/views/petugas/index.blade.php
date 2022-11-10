@@ -57,7 +57,7 @@
                     <tbody>
                         @foreach ($petugas as $data)
                         <tr>
-                            <td>{{ $data->nama_lengkap }}</td>
+                            <td>{{ $data->name }}</td>
                             <td>{{ $data->pengawas->name }}</td>
                             <td>{{ $data->no_ktp }}</td>
                             <td>{{ $data->jenis_kelamin }}</td>

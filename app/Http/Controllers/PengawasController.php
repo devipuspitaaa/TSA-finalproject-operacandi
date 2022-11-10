@@ -36,6 +36,7 @@ class PengawasController extends Controller
                 }
             }]
         ])
+        ->where('role', 'pengawas')
         ->orderBy('id', 'asc')
             ->simplePaginate(1000);
 

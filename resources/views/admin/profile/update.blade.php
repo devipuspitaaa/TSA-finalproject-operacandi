@@ -8,7 +8,7 @@
     <div class="card " style="background-color: #ffc800; padding-top:10px; padding-bottom:15px;">
         <div class="card-header">
             <center>
-                <h2 class="card-title"><strong> Update Profile Pengawas</strong> </h2>
+                <h2 class="card-title"><strong> Update Profile Lurah</strong> </h2>
             </center>
             </div>
         </div>
@@ -25,7 +25,7 @@
                 </ul>
             </div>
             @endif
-            <form method="post" action="{{route('profilepengawas.update')}}">
+            <form method="post" action="{{route('profileadmin.update')}}">
             {{csrf_field()}}
                 <div class="featured__controls">
                     <div class="row">
@@ -33,19 +33,6 @@
                         <div class="col-sm-10">
                             <div class="form-group">
                                 <input type="text" name="name" class="form-control" id="name" value="{{ Auth::user()->name }}" aria-describedby="name" placeholder="Masukkan nama lengkap" required>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <label class="col-sm-2 col-form-label" for="survei_id">Nama Survei</label>
-                        <div class="col-sm-10">
-                            <div class="form-group">
-                                <select name="survei" id="survei" class="form-control">
-                                    <option value="{{ Auth::user()->survei_id }}" selected>{{ Auth::user()->survei->nama_survei }}</option>
-                                    @foreach($survei as $survei)
-                                    <option value="{{$survei->id}}">{{$survei->nama_survei}}</option>
-                                    @endforeach
-                                </select>
                             </div>
                         </div>
                     </div>
@@ -116,7 +103,7 @@
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
-                <a class="btn btn-success" href="/">Kembali</a>
+                <a class="btn btn-success" href="/home">Kembali</a>
             </form>
         </div>
     </div>

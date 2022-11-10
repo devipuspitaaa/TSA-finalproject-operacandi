@@ -22,7 +22,7 @@ class PetugasController extends Controller
      */
     public function index(Request $request)
     {
-        $petugas = Petugas::with('pengawas')->where('is_del', 0)->get();
+        $petugas = User::with('pengawas')->where('role', 'petugas')->get();
 
         // $petugas = Petugas::where([
         //     ['pengawas_id', '!=', Null],
