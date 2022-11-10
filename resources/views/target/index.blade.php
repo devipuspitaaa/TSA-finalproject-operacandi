@@ -2,7 +2,6 @@
 @section('content')
 <br></br>
 <br></br>
-<br></br>
 <div class="col-md-12">
     <div class="card " style="background-color: #ffc800; padding-top:10px; padding-bottom:15px;">
         <div class="card-header">

@@ -568,7 +568,7 @@
                             padding: 20
                         },
                         gridLines: {
-                            zeroLineColor: "transparent",
+                            zeroLineColor: "#9f9f9f",
                             display: true,
                             drawBorder: false,
                             color: '#9f9f9f',
