@@ -30,7 +30,7 @@
             <a class="navbar-brand">Portal OPERA CANDI</a>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                    <li class="nav-item"><a class="nav-link scrollto active" href="{{ url('/') }}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link scrollto active" href="{{ url('/') }}">Beranda</a></li>
                     <li class="nav-item"><a class="nav-link" href="#tentang">Tentang</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Aplikasi</a></li>
                 </ul>
