@@ -23,22 +23,22 @@
                     <h5 class="text-light mb-4" style="margin-left:-170px;">Foto Kegiatan</h5>
                     <div class="row g-2" style="margin-left:-40px;">
                         <div class="col-4">
-                            <img class="img-fluid rounded" src="img/project-7.jpg" style="height:70px; width:90px;" alt="Image">
+                            <img class="img-fluid rounded" src="img/project-10.jpeg" style="height:70px; width:90px;" alt="Image">
                         </div>
                         <div class="col-4">
-                            <img class="img-fluid rounded" src="img/project-8.jpg" style="height:70px; width:90px;" alt="Image">
+                            <img class="img-fluid rounded" src="img/project-9.jpg" style="height:70px; width:90px;" alt="Image">
                         </div>
                         <div class="col-4">
-                            <img class="img-fluid rounded" src="img/project-3.jpg" alt="Image">
+                            <img class="img-fluid rounded" src="img/project-11.jpg" style="height:70px; width:90px;" alt="Image">
                         </div>
                         <div class="col-4">
-                            <img class="img-fluid rounded" src="img/project-4.jpg" alt="Image">
+                        <img class="img-fluid rounded" src="img/project-7.jpg" style="height:70px; width:90px;" alt="Image">
                         </div>
                         <div class="col-4">
-                            <img class="img-fluid rounded" src="img/project-5.jpg" alt="Image">
+                        <img class="img-fluid rounded" src="img/project-8.jpg" style="height:70px; width:90px;" alt="Image">
                         </div>
                         <div class="col-4">
-                            <img class="img-fluid rounded" src="img/project-6.jpg" alt="Image">
+                        <img class="img-fluid rounded" src="img/project-12.jpg" style="height:70px; width:90px;" alt="Image">
                         </div>
                     </div>
                 </div>
