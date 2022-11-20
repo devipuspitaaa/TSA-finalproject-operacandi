@@ -127,7 +127,7 @@
 
                 } else {
 
-                    let html = `<div class="alert alert-danger">Pemebritauan<br><small>Harap masukkan nilai yang valid</small></div>`;
+                    let html = `<div class="alert alert-danger">Informasi<br><small>Harap masukkan nilai yang valid</small></div>`;
                     $('#message').html(html).hide().fadeIn(1000);
                 }
             }

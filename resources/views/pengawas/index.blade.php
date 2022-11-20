@@ -67,13 +67,12 @@
                             <td>{{ $data->nip }}</td>
                             @if (Auth::user()->role=='admin')
                             <td>
-                                <center><form action="{{ route('pengawas.destroy',$data->id) }}" method="POST">
-                                    @csrf
+                                <form action="{{ route('pengawas.destroy',$data->id) }}" method="POST">
+                                @csrf
                                     @method('DELETE')
-                                    <button type="submit" rel="tooltip" class="btn btn-danger btn-icon btn-sm ">
-                                        <i class="fa fa-times"></i></center>
-                                    </button>
+                                        <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin untuk menghapus data ini ?')" ><i class="fa fa-times"></i></button>
                                 </form>
+                              
                             </td>
                             @endif
                         </tr>

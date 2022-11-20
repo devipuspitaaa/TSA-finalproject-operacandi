@@ -21,6 +21,12 @@ class ProfilePengawasController extends Controller
     public function updateprofile(Request $request)
     {
 
+        $this->validate($request, [
+            'no_ktp' => 'string|max:16|unique:users',
+            'no_tlp' => 'string|max:12|unique:users',
+            'nip' => 'string|max:18|unique:users'
+        ]);
+
         $pengawas_id = Auth::user()->id;
         $pengawas = User::findOrFail($pengawas_id);
         $pengawas->name = $request->input('name');

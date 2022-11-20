@@ -42,7 +42,7 @@
                         <label class="col-sm-2 col-form-label">Total Target</label>
                         <div class="col-sm-10">
                             <div class="form-group">
-                                <input type="total_target" name="total_target" class="form-control" id="total_target"
+                                <input type="number" name="total_target" class="form-control" id="total_target"
                                     aria-describedby="total_target" placeholder="masukkan total target" required>
                             </div>
                         </div>
@@ -52,7 +52,7 @@
                         <label class="col-sm-2 col-form-label">Total Petugas</label>
                         <div class="col-sm-10">
                             <div class="form-group">
-                                <input type="total_petugas" name="total_petugas" class="form-control" id="total_petugas"
+                                <input type="number" name="total_petugas" class="form-control" id="total_petugas"
                                     aria-describedby="total_petugas" placeholder="masukkan total petugas" required>
                             </div>
                         </div>
@@ -62,7 +62,7 @@
                         <label class="col-sm-2 col-form-label">Total Pengawas</label>
                         <div class="col-sm-10">
                             <div class="form-group">
-                                <input type="total_pengawas" name="total_pengawas" class="form-control"
+                                <input type="number" name="total_pengawas" class="form-control"
                                     id="total_pengawas" aria-describedby="total_pengawas"
                                     placeholder="masukkan total pengawas" required>
                             </div>
@@ -73,7 +73,7 @@
                         <label class="col-sm-2 col-form-label">Jangka Hari Penyelesaian</label>
                         <div class="col-sm-10">
                             <div class="form-group">
-                                <input type="jh_penyelesaian" name="jh_penyelesaian" class="form-control"
+                                <input type="number" name="jh_penyelesaian" class="form-control"
                                     id="jh_penyelesaian" aria-describedby="jh_penyelesaian"
                                     placeholder="masukkan jangka hari selesai" required>
                             </div>
@@ -84,7 +84,7 @@
                         <label class="col-sm-2 col-form-label">Target Per-Petugas Setiap Hari</label>
                         <div class="col-sm-10">
                             <div class="form-group">
-                                <input type="target_petugas" name="target_petugas" class="form-control"
+                                <input type="number" name="target_petugas" class="form-control"
                                     id="target_petugas" aria-describedby="target_petugas"
                                     placeholder="masukkan target petugas" required>
                             </div>
@@ -118,7 +118,7 @@
 
                 } else {
 
-                    let html = `<div class="alert alert-danger">Pemebritauan<br><small>Harap masukkan nilai yang valid</small></div>`;
+                    let html = `<div class="alert alert-danger">Informasi<br><small>Harap masukkan nilai yang valid</small></div>`;
                     $('#message').html(html).hide().fadeIn(1000);
                 }
             }

@@ -17,6 +17,15 @@ class PenggunaController extends Controller
     }
 
     public function store(Request $request) {
+
+        $this->validate($request, [
+            'username' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'role' => ['required', 'string', 'max:255'],
+            'password' => ['required', 'string', 'min:8', 'confirmed']
+        ]);
+        
         $user = new user;
         $user->username = $request->input('username');
         $user->name = $request->input('name');

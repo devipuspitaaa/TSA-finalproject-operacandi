@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Survei;
 use Illuminate\Http\Request;
 use Symfony\Component\VarDumper\Cloner\Data;
+use Session;
 
 class SurveiController extends Controller
 {
@@ -117,9 +118,16 @@ class SurveiController extends Controller
      */
     public function destroy($id)
     {
-        Survei::find($id)->delete();
-        return redirect()->route('form.index')
-            ->with('success', 'Data Berhasil Dihapus');
+        $survei = Survei::find($id)->delete();
+        
+        
+        if ($survei) {
+            Session::flash('delete','Hapus Data Survei Berhasil');
+            return redirect()->route('form.index');
+        } else {
+            Session::flash('failed','Hapus Data Survei Gagal');
+            return redirect()->route('form.index');
+        }
     }
 
     public function tampil(Request $request)

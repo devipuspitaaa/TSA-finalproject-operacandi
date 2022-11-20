@@ -51,7 +51,7 @@
                         <label class="col-sm-2 col-form-label">Total Petugas</label>
                         <div class="col-sm-10">
                             <div class="form-group">
-                                <input type="total_petugas" name="total_petugas" class="form-control" id="total_petugas" value="{{$data->total_petugas}}" aria-describedby="total_petugas" placeholder="masukkan total petugas" required>
+                                <input type="number" name="total_petugas" class="form-control" id="total_petugas" value="{{$data->total_petugas}}" aria-describedby="total_petugas" placeholder="masukkan total petugas" required>
                             </div>
                         </div>
                     </div>
@@ -60,7 +60,7 @@
                         <label class="col-sm-2 col-form-label">Total Pengawas</label>
                         <div class="col-sm-10">
                             <div class="form-group">
-                                <input type="total_pengawas" name="total_pengawas" class="form-control" id="total_pengawas" value="{{$data->total_pengawas}}" aria-describedby="total_pengawas" placeholder="masukkan total pengawas" required>
+                                <input type="number" name="total_pengawas" class="form-control" id="total_pengawas" value="{{$data->total_pengawas}}" aria-describedby="total_pengawas" placeholder="masukkan total pengawas" required>
                             </div>
                         </div>
                     </div>
@@ -69,7 +69,7 @@
                         <label class="col-sm-2 col-form-label">Jangka Hari Penyelesaian</label>
                         <div class="col-sm-10">
                             <div class="form-group">
-                                <input type="jh_penyelesaian" name="jh_penyelesaian" class="form-control" id="jh_penyelesaian" value="{{$data->jh_penyelesaian}}" aria-describedby="jh_penyelesaian" placeholder="masukkan jangka hari selesai" required>
+                                <input type="number" name="jh_penyelesaian" class="form-control" id="jh_penyelesaian" value="{{$data->jh_penyelesaian}}" aria-describedby="jh_penyelesaian" placeholder="masukkan jangka hari selesai" required>
                             </div>
                         </div>
                     </div>
@@ -78,7 +78,7 @@
                         <label class="col-sm-2 col-form-label">Target Per-Petugas Setiap Hari</label>
                         <div class="col-sm-10">
                             <div class="form-group">
-                                <input type="target_petugas" name="target_petugas" class="form-control" id="target_petugas" value="{{$data->target_petugas}}" aria-describedby="target_petugas" placeholder="masukkan target petugas" required>
+                                <input type="number" name="target_petugas" class="form-control" id="target_petugas" value="{{$data->target_petugas}}" aria-describedby="target_petugas" placeholder="masukkan target petugas" required>
                             </div>
                         </div>
                     </div>
@@ -109,7 +109,7 @@
 
             } else {
 
-                let html = `<div class="alert alert-danger">Pemebritauan<br><small>Harap masukkan nilai yang valid</small></div>`;
+                let html = `<div class="alert alert-danger">Informasi<br><small>Harap masukkan nilai yang valid</small></div>`;
                 $('#message').html(html).hide().fadeIn(1000);
             }
         }

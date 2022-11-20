@@ -23,9 +23,9 @@ class ProfilePetugasController extends Controller
     public function updateprofile(Request $request)
     {
         $this->validate($request, [
-            'no_ktp' => 'string|max:255|unique:users',
-            'no_tlp' => 'string|max:255|unique:users',
-            'nip' => 'string|max:255|unique:users'
+            'no_ktp' => 'string|max:16|unique:users',
+            'no_tlp' => 'string|max:12|unique:users',
+            'nip' => 'string|max:18|unique:users'
         ]);
 
         $petugas_id = Auth::user()->id;

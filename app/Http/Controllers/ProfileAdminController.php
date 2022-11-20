@@ -18,6 +18,12 @@ class ProfileAdminController extends Controller
     public function updateprofile(Request $request)
     {
 
+        $this->validate($request, [
+            'no_ktp' => 'string|max:16|unique:users',
+            'no_tlp' => 'string|max:12|unique:users',
+            'nip' => 'string|max:18|unique:users'
+        ]);
+
         $admin_id = Auth::user()->id;
         $admin = User::findOrFail($admin_id);
         $admin->name = $request->input('name');

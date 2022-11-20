@@ -17,11 +17,29 @@
             @endif
 
         <div class="card-body">
-            @if ($message = Session::get('success'))
-            <div class="alert alert-success">
-                <p>{{ $message }}</p>
-            </div>
-            @endif
+        @if(Session::has('success'))
+                                    <div class="btn btn-success" style="width:100%; height:50px">
+                                        <p>{{Session::get('success')}}</p>
+                                    </div>
+                                @endif
+
+                                @if(Session::has('delete'))
+                                    <div class="btn btn-warning" style="width:100%; height:50px">
+                                        <p>{{Session::get('delete')}}</p>
+                                    </div>
+                                @endif
+
+                                @if(Session::has('update'))
+                                    <div class="btn btn-info" style="width:100%; height:50px">
+                                        <p>{{Session::get('update')}}</p>
+                                    </div>
+                                @endif
+
+                                @if(Session::has('failed'))
+                                    <div class="btn btn-danger" style="width:100%; height:50px">
+                                        <p>{{Session::get('delete')}}</p>
+                                    </div>
+                                @endif
 
             <div class="">
                 <table class="table" id="basic-datatables">

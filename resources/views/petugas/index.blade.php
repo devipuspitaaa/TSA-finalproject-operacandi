@@ -67,19 +67,12 @@
                             <td>{{ $data->nip }}</td>
                             @if (Auth::user()->role=='admin')
                             <td>
-                                <!-- <form action="{{ route('petugas.destroy',$data->id) }}" method="POST">
-                                    <a href="{{ route('petugas.edit',$data->id) }}">
-                                        <button type="button" rel="tooltip" class="btn btn-success btn-icon btn-sm ">
-                                            <i class="fa fa-edit"></i>
-                                        </button>
-                                    </a>
-                                    @csrf
+                                <form action="{{ route('petugas.destroy',$data->id) }}" method="POST">
+                                @csrf
                                     @method('DELETE')
-                                    <button type="submit" rel="tooltip" class="btn btn-danger btn-icon btn-sm ">
-                                        <i class="fa fa-times"></i>
-                                    </button>
-                                </form> -->
-                                <center><a href="{{ url('petugas/hapus/'. $data->id) }}" onclick="return confirm('Apakah anda ingin menghapus data ini ?')" class="btn btn-danger btn-icon btn-sm "><i class="fa fa-times"></i></a></center>
+                                        <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin untuk menghapus data ini ?')" ><i class="fa fa-times"></i></button>
+                                </form>
+                              
                             </td>
                             @endif
                         </tr>

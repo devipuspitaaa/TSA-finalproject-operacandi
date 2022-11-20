@@ -19,6 +19,12 @@ class ProfileLurahController extends Controller
     public function updateprofile(Request $request)
     {
 
+        $this->validate($request, [
+            'no_ktp' => 'string|max:16|unique:users',
+            'no_tlp' => 'string|max:12|unique:users',
+            'nip' => 'string|max:18|unique:users'
+        ]);
+
         $lurah_id = Auth::user()->id;
         $lurah = User::findOrFail($lurah_id);
         $lurah->name = $request->input('name');

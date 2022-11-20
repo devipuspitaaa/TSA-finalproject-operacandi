@@ -71,7 +71,7 @@
 						<td>{{ $i++ }}</td>
 						<td>{{ $data->pengawas->name}}</td>
 						<td>{{ $data->petugas->name}}</td>
-						<td>{{ $data->tanggal }}</td>
+						<td>{{ $data->tanggal->format('l jS') }}</td>
 						<td>{{ $data->target }}</td>
 				</tbody>
 						@endif
@@ -101,7 +101,7 @@
 								<td>{{ $i++ }}</td>
 								<td>{{ $data->pengawas->name}}</td>
 								<td>{{ $data->petugas->name}}</td>
-								<td>{{ $data->tanggal }}</td>
+								<td>{{ Carbon\Carbon::parse($data->created_at)->isoFormat('dddd, D MMMM Y') }}</td>
 								<td>{{ $data->target }}</td>
 						</tbody>
 								@endforeach

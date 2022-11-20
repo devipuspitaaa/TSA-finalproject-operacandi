@@ -60,7 +60,7 @@
                         <label class="col-sm-2 col-form-label">Jumlah Realisasi/hari</label>
                         <div class="col-sm-10">
                             <div class="form-group">
-                                <input type="target" name="target" class="form-control" id="target" value="{{ $data->target }}"
+                                <input type="number" name="target" class="form-control" id="target" value="{{ $data->target }}"
                                     aria-describedby="target" placeholder="masukkan jumlah realisasi/hari" required>
                             </div>
                         </div>

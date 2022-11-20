@@ -170,7 +170,8 @@ class PengawasController extends Controller
      */
     public function destroy($id)
     {
-        Pengawas::find($id)->delete();
+        $pengawas = User::find($id);
+        $pengawas->delete();
         return redirect()->route('pengawas.index')
             ->with('success', 'Data Berhasil Dihapus');
     }

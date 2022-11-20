@@ -157,8 +157,8 @@ class PetugasController extends Controller
     {
         // Petugas::find($id)->delete();
 
-        DB::table("petugas")->where('id', $id)->update(['is_del' => 1]);
-
+        $petugas = User::find($id);
+        $petugas->delete();
         return redirect()->route('petugas.index')
             ->with('success', 'Data Berhasil Dihapus');
     }
