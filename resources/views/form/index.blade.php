@@ -87,11 +87,6 @@
                                             <i class="fa fa-edit"></i>
                                         </button>
                                     </a>
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" rel="tooltip" class="btn btn-danger btn-icon btn-sm ">
-                                        <i class="fa fa-times"></i>
-                                    </button>
                                 </form>
 
                             </td>

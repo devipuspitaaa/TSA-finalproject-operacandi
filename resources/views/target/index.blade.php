@@ -100,6 +100,52 @@
             </table>
         </div>
         @endif
+
+        @if (Auth::user()->role=='pengawas')
+            <div class="col-md-12">
+            <table class="table" id="datatable">
+                <thead class="text-primary">
+                <tr>
+                    <th>Tanggal</th>
+                    <th>Nama Petugas</th>
+                    <th>Nama Pengawas</th>
+                    <th>Jumlah Realisasi/hari</th>
+                    <th>Status Validasi</th>
+                </tr>
+                </thead>
+               
+                @foreach ($targets as $data)
+                @if ($data->pengawas->id == Auth::user()->id)
+               <tr>
+                    <td>{{ $data->tanggal }}</td>
+                    <td>{{ $data->petugas->name}}</td>
+                    <td>{{ $data->pengawas->name}}</td>
+                    <td>{{ $data->target }}</td>
+
+                    @if($data->status == null)
+                        <td>
+                            <a href="{{ route('target.valid', $data->id) }}" class="btn btn-primary btn-flat"><i class="fa fa-check"></i><b style="font-size:12px;">Validasi</a>
+                        </td>
+
+                    @elseif($data->status == 1)
+                    <td>
+                            <a href="{{ route('target.tdkvalid', $data->id) }}" class="btn btn-primary btn-flat"><i class="fa fa-check"></i><b style="font-size:12px;">Valid</a>
+                        </td>
+                        @elseif($data->status == 2)
+                        <td>
+                            <a href="{{ route('target.valid', $data->id) }}" class="btn btn-danger btn-flat"><i class="fa fa-times"></i><b style="font-size:12px;">Tidak Valid</a>
+                        </td>
+
+                    @endif
+                   
+                @endif
+
+                </tr>
+                @endforeach
+                
+            </table>
+        </div>
+        @endif
         </div>
     </div>
     @endsection

@@ -119,7 +119,16 @@ class SurveiController extends Controller
     public function destroy($id)
     {
         $survei = Survei::find($id)->delete();
-        
+        $error = $survei->db->error();
+        if($error['code'] != 0) {
+            Session::flash('failed','Hapus Data Survei Gagal');
+            return redirect()->route('form.index');
+        }
+        else {
+            Session::flash('delete','Hapus Data Survei Berhasil');
+            return redirect()->route('form.index');
+
+        }
         
         if ($survei) {
             Session::flash('delete','Hapus Data Survei Berhasil');

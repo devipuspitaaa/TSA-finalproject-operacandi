@@ -8,7 +8,7 @@
     <div class="card " style="background-color: #ffc800; padding-top:10px; padding-bottom:15px;">
         <div class="card-header">
             <center>
-                <h2 class="card-title"><strong> Update Profile Lurah</strong> </h2>
+                <h2 class="card-title"><strong> Update Profile Admin</strong> </h2>
             </center>
             </div>
         </div>
